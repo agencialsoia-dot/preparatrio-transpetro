@@ -1,0 +1,597 @@
+<title>Cockpit Transpetro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#eef1ef; --surface:#ffffff; --surface-2:#f6f8f7; --border:#dde3e0;
+  --ink:#182420; --muted:#5c6b64; --faint:#8a978f;
+  --accent:#0e7490; --accent-ink:#ffffff; --accent-soft:#dceef3;
+  --ok:#15794b; --ok-soft:#dcefe3; --err:#c0392b; --err-soft:#f6dfdc;
+  --amber:#a15c00; --amber-soft:#f6e8cf;
+  --shadow:0 1px 2px rgba(20,40,30,.05),0 6px 20px -12px rgba(20,40,30,.18);
+  --r:14px;
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --bg:#0d1512; --surface:#141e1a; --surface-2:#101915; --border:#25322d;
+  --ink:#e7efeb; --muted:#9aa8a1; --faint:#6c7a73;
+  --accent:#3bb4cf; --accent-ink:#04222a; --accent-soft:#123039;
+  --ok:#4cc088; --ok-soft:#10281e; --err:#f0776a; --err-soft:#2c1613;
+  --amber:#e0a340; --amber-soft:#2a2010;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
+ }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1512; --surface:#141e1a; --surface-2:#101915; --border:#25322d;
+  --ink:#e7efeb; --muted:#9aa8a1; --faint:#6c7a73;
+  --accent:#3bb4cf; --accent-ink:#04222a; --accent-soft:#123039;
+  --ok:#4cc088; --ok-soft:#10281e; --err:#f0776a; --err-soft:#2c1613;
+  --amber:#e0a340; --amber-soft:#2a2010;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -14px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,h3{font-family:"Archivo","IBM Plex Sans",sans-serif;margin:0;line-height:1.15;text-wrap:balance;letter-spacing:-.01em}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* shell */
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.top-in{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 18px}
+.brand{display:flex;flex-direction:column;line-height:1.1;margin-right:auto}
+.brand b{font-family:"Archivo";font-weight:800;font-size:15px;letter-spacing:-.02em}
+.brand span{font-size:11px;color:var(--muted);letter-spacing:.02em}
+.tabs{display:none;gap:2px}
+@media(min-width:720px){.tabs{display:flex}}
+.tab{border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:9px;font-weight:500;font-size:14px;display:flex;gap:7px;align-items:center}
+.tab:hover{background:var(--surface-2);color:var(--ink)}
+.tab.on{background:var(--accent-soft);color:var(--accent)}
+.tab svg{width:16px;height:16px}
+.iconbtn{border:1px solid var(--border);background:var(--surface);color:var(--muted);width:36px;height:36px;border-radius:9px;display:grid;place-items:center}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn svg{width:17px;height:17px}
+
+main{max-width:920px;margin:0 auto;padding:20px 18px 96px}
+@media(min-width:720px){main{padding-bottom:36px}}
+
+/* bottom nav */
+.bottom{position:fixed;inset:auto 0 0 0;z-index:30;background:var(--surface);border-top:1px solid var(--border);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+@media(min-width:720px){.bottom{display:none}}
+.bt{flex:1;border:0;background:transparent;color:var(--faint);padding:9px 0 8px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:500}
+.bt.on{color:var(--accent)}
+.bt svg{width:21px;height:21px}
+
+/* cards & bits */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow)}
+.pad{padding:18px}
+.eyebrow{font-family:"IBM Plex Mono";text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}.faint{color:var(--faint)}
+.h-page{font-size:26px;font-weight:800}
+.grid{display:grid;gap:14px}
+.stats{grid-template-columns:repeat(3,1fr)}
+.stat .v{font-family:"Archivo";font-weight:800;font-size:30px;line-height:1;letter-spacing:-.02em}
+.stat .k{font-size:12px;color:var(--muted);margin-top:6px}
+.tile-accent{color:var(--accent)}.tile-ok{color:var(--ok)}.tile-err{color:var(--err)}
+
+.btn{border:0;border-radius:11px;padding:0 18px;height:46px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--accent);color:var(--accent-ink);width:100%}
+.btn:hover{filter:brightness(1.05)}
+.btn.sec{background:var(--surface);color:var(--ink);border:1px solid var(--border)}
+.btn.sm{height:38px;font-size:14px;padding:0 14px;width:auto}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent-soft)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+
+.bar{height:9px;border-radius:6px;background:var(--border);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:6px;background:var(--accent);transition:width .5s}
+.bar.ok>i{background:var(--ok)}.bar.err>i{background:var(--err)}
+.discrow{display:grid;grid-template-columns:1fr auto;gap:5px 12px;align-items:center;margin:14px 0}
+.discrow .nm{font-weight:500;font-size:14px}
+.discrow .pc{font-family:"IBM Plex Mono";font-weight:600;font-size:13px}
+.discrow .bar{grid-column:1/-1}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:600;font-family:"IBM Plex Mono"}
+.badge.real{background:var(--accent-soft);color:var(--accent)}
+.badge.ok{background:var(--ok-soft);color:var(--ok)}
+.badge.err{background:var(--err-soft);color:var(--err)}
+.badge.amber{background:var(--amber-soft);color:var(--amber)}
+
+.chip{border:1px solid var(--border);background:var(--surface);color:var(--ink);border-radius:10px;padding:8px 13px;font-size:13.5px;font-weight:500}
+.chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+
+/* question */
+.qmeta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.qnum{font-family:"IBM Plex Mono";font-weight:600;font-size:13px;color:var(--muted)}
+.enun{font-size:16.5px;line-height:1.72;white-space:pre-wrap;margin:2px 0 18px}
+@media(min-width:720px){.enun{font-size:17.5px}}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:13px 15px;color:var(--ink);transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--accent)}
+.opt .lt{font-family:"IBM Plex Mono";font-weight:600;width:24px;height:24px;flex:none;border-radius:7px;background:var(--surface-2);display:grid;place-items:center;font-size:13px;color:var(--muted);margin-top:1px}
+.opt .tx{font-size:15px;line-height:1.55}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .lt{background:var(--accent);color:var(--accent-ink)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct .lt{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--err);background:var(--err-soft)}
+.opt.wrong .lt{background:var(--err);color:#fff}
+.opt[disabled]{pointer-events:none}
+.opt.dim{opacity:.6}
+
+/* grid of question numbers */
+.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:7px}
+.qg{aspect-ratio:1;border:1px solid var(--border);background:var(--surface);border-radius:9px;font-family:"IBM Plex Mono";font-weight:600;font-size:13px;color:var(--muted);display:grid;place-items:center;position:relative}
+.qg.answered{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-soft)}
+.qg.cur{outline:2px solid var(--accent);outline-offset:1px;color:var(--ink)}
+.qg.gok{background:var(--ok-soft);color:var(--ok);border-color:var(--ok-soft)}
+.qg.gerr{background:var(--err-soft);color:var(--err);border-color:var(--err-soft)}
+
+/* timer */
+.timer{font-family:"IBM Plex Mono";font-weight:600;font-size:14px;color:var(--ink);display:inline-flex;gap:7px;align-items:center;background:var(--surface-2);border:1px solid var(--border);padding:6px 11px;border-radius:9px}
+.timer .dot{width:7px;height:7px;border-radius:50%;background:var(--err);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* ring */
+.ring{--p:0;width:150px;height:150px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--border) 0);}
+.ring .in{width:118px;height:118px;border-radius:50%;background:var(--surface);display:grid;place-content:center;text-align:center}
+.ring .big{font-family:"Archivo";font-weight:800;font-size:30px;line-height:1}
+.ring .sm{font-size:12px;color:var(--muted);margin-top:2px}
+
+.list{display:flex;flex-direction:column}
+.li{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:13px 2px;border-bottom:1px solid var(--border)}
+.li:last-child{border-bottom:0}
+.li .t{font-weight:500;font-size:14px}
+.li .s{font-size:12px;color:var(--muted);margin-top:2px}
+
+.empty{text-align:center;padding:34px 18px;color:var(--muted)}
+.empty svg{width:34px;height:34px;color:var(--faint);margin-bottom:8px}
+.hide{display:none!important}
+.stack>*+*{margin-top:14px}
+.split{display:grid;gap:16px}
+@media(min-width:720px){.s7{grid-template-columns:1.1fr .9fr}}
+.center{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+hr.sep{border:0;border-top:1px solid var(--border);margin:16px 0}
+a.link{color:var(--accent);font-weight:600;text-decoration:none}
+.note{font-size:12.5px;color:var(--muted);background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+</style>
+
+<div class="top"><div class="top-in">
+  <div class="brand"><b>Cockpit Transpetro</b><span>Dutos e Terminais · Cesgranrio</span></div>
+  <nav class="tabs" id="tabs"></nav>
+  <button class="iconbtn" id="themeBtn" title="Tema" aria-label="Alternar tema"></button>
+</div></div>
+
+<main id="app"></main>
+
+<nav class="bottom" id="bottom"></nav>
+
+<script id="qdata" type="application/json">[{"n": 1, "disc": "LP", "st": "Texto para as questões de 1 a 10 — \"Brasil, paraíso dos agrotóxicos\" (KUGLER, H. Revista Ciência Hoje, n. 296, v. 50. RJ: SBPC, set. 2012. Adaptado).\n\nO Brasil vive um drama: ao acordar do sonho de uma economia agrária pujante, o país desperta para o pesadelo de ser, pelo quinto ano consecutivo, o maior consumidor de agrotóxicos do planeta. Balança comercial tinindo; agricultura a todo vapor. Mas quanto custa, por exemplo, uma saca de milho, soja ou algodão? Será que o preço de tais commodities – que há tempos são o motor de uma economia primária à la colonialismo moderno – compensa os prejuízos sociais e ambientais negligenciados nos cálculos do comércio internacional? (parágrafo 1)\n\n\"Pergunta difícil\", diz o economista Wagner Soares, do IBGE. A Bolsa de Chicago define o preço da soja; mas não considera que, para se produzir cada saca, são aplicadas generosas doses de agrotóxicos que permanecem no ambiente natural – e no ser humano – por anos ou mesmo décadas. \"Ao final das contas, quem paga pela intoxicação dos trabalhadores e pela contaminação ambiental é a sociedade\", afirma Soares. Em seu melhor economês, ele garante que as \"externalidades negativas\" de nosso modelo agrário continuam de fora dos cálculos. (parágrafo 2)\n\nSegundo o economista do IBGE, que estudou propriedades rurais no Paraná, cada dólar gasto na compra de agrotóxicos pode custar aos cofres públicos 1,28 dólar em futuros gastos com a saúde de camponeses intoxicados. Mas este é um valor subestimado. Afinal, Soares contabilizou apenas os custos referentes a intoxicações agudas. Levando-se em conta os casos crônicos, acrescidos da contaminação ambiental difusa nos ecossistemas, os prejuízos podem atingir cifras assustadoramente maiores. (parágrafo 3)\n\nSeja na agricultura familiar, seja nas grandes propriedades rurais, \"os impactos dos agrotóxicos na saúde pública abrangem vastos territórios e envolvem diferentes grupos populacionais\", afirma dossiê publicado pela Abrasco. (parágrafo 4)\n\nNão são apenas agricultores e suas famílias que integram grupos de risco. Todos os milhares de profissionais envolvidos no comércio e na manipulação dessas substâncias são potenciais vítimas. E, além deles, \"todos nós, diariamente, a cada refeição, ingerimos princípios ativos de agrotóxicos em nossos alimentos\", garante uma médica da UFC. \"Hoje, todo mundo come veneno\", afirma um agricultor. (parágrafo 5)\n\nProdutores e especialistas alinhados ao modelo convencional de produção agrícola insistem: sem agrotóxicos seria impossível alimentar uma população mundial em constante expansão. Esses venenos seriam, portanto, um mal necessário, de acordo com esses produtores. Agricultores garantem que não há nenhuma dificuldade em produzir alimentos orgânicos, sem agrotóxicos, para alimentar a população. Segundo eles, \"a humanidade domina a agricultura há pelo menos 10 mil anos, e o modelo imposto no século 20 vem apagando a herança e o acúmulo de conhecimento dos métodos tradicionais.\" (parágrafo 6)\n\nMas a pergunta que não quer calar é: será que um modelo dito \"alternativo\" teria potencial para alimentar uma população que, até 2050, deverá chegar a 9 bilhões? Certamente tem muito mais potencial do que o agronegócio que, hoje, não dá conta nem de alimentar 7 bilhões, retrucam estudiosos. Sistemas de produção descentralizados têm muito mais condições de produzir e distribuir alimentos em quantidade e qualidade. Precisamos de outra estrutura agrária – baseada em propriedades menores, com produção diversificada, privilegiando mercados locais e contemplando a conservação da biodiversidade. A engenheira agrônoma Flávia Londres assina embaixo e defende que \"Monoculturas são grandes desertos verdes. A agroecologia, portanto, requer uma mudança paradigmática no modelo agrário, que resultaria, na verdade, em uma mudança cultural\". (parágrafo 7)\n\nO objetivo principal do texto é discutir a", "o": ["contraposição entre a agricultura orgânica e a convencional, baseada no uso de agrotóxicos.", "implementação de monoculturas para a renovação do bem-sucedido modelo agrário brasileiro.", "importância de o nosso país se manter na liderança na concorrência mundial do agronegócio.", "intoxicação dos trabalhadores e a contaminação ambiental provocados pela agricultura familiar.", "perspectiva de o agronegócio conseguir produzir alimentos para uma população de sete bilhões de pessoas."], "c": "A"}, {"n": 2, "disc": "LP", "st": "O trecho que apresenta a proposta do autor para a solução do problema discutido é:", "o": ["\"O Brasil vive um drama: ao acordar do sonho de uma economia agrária pujante, o país desperta para o pesadelo de ser, pelo quinto ano consecutivo, o maior consumidor de agrotóxicos do planeta\" (parágrafo 1)", "\"A Bolsa de Chicago define o preço da soja; mas não considera que, para se produzir cada saca, são aplicadas generosas doses de agrotóxicos que permanecem no ambiente natural – e no ser humano – por anos ou mesmo décadas\" (parágrafo 2)", "\"Levando-se em conta os casos crônicos, acrescidos da contaminação ambiental difusa nos ecossistemas, os prejuízos podem atingir cifras assustadoramente maiores.\" (parágrafo 3)", "\"Todos os milhares de profissionais envolvidos no comércio e na manipulação dessas substâncias são potenciais vítimas.\" (parágrafo 5)", "\"Precisamos de outra estrutura agrária – baseada em propriedades menores, com produção diversificada, privilegiando mercados locais e contemplando a conservação da biodiversidade.\" (parágrafo 7)"], "c": "E"}, {"n": 3, "disc": "LP", "st": "No trecho \"Em seu melhor economês, ele garante que as 'externalidades negativas' de nosso modelo agrário continuam de fora dos cálculos\" (parágrafo 2), a expressão destacada refere-se a", "o": ["prejuízos sociais e ambientais causados pelo uso dos agrotóxicos", "opiniões dos produtores sobre os benefícios dos agrotóxicos", "lucros obtidos com o grande crescimento do agronegócio", "influências negativas de outros países na economia agrária", "efeitos do aumento das commodities na economia brasileira"], "c": "A"}, {"n": 4, "disc": "LP", "st": "Considere os dois períodos do seguinte trecho do parágrafo 6: \"Esses venenos seriam, portanto, um mal necessário, de acordo com esses produtores. Agricultores garantem que não há nenhuma dificuldade em produzir alimentos orgânicos, sem agrotóxicos, para alimentar a população\". Para transformá-los em um só período, mantendo-se o sentido do trecho original, deve-se empregar a palavra", "o": ["para", "porque", "quando", "portanto", "entretanto"], "c": "E"}, {"n": 5, "disc": "LP", "st": "No trecho \"ao acordar do sonho de uma economia agrária pujante, o país desperta para o pesadelo de ser, pelo quinto ano consecutivo, o maior consumidor de agrotóxicos do planeta\" (parágrafo 1), a palavra destacada pode ser substituída, sem prejuízo do sentido, por", "o": ["apreciada", "incipiente", "inoperante", "possante", "moderna"], "c": "D"}, {"n": 6, "disc": "LP", "st": "No trecho \"Esses venenos seriam, portanto, um mal necessário, de acordo com esses produtores.\" (parágrafo 6), a palavra destacada veicula a relação lógica de", "o": ["adição", "conclusão", "concessão", "explicação", "temporalidade"], "c": "B"}, {"n": 7, "disc": "LP", "st": "No texto, o referente da palavra ou expressão em destaque está corretamente explicitado, entre colchetes, no trecho do", "o": ["parágrafo 1 – \"Será que o preço de tais commodities – que há tempos são o motor de uma economia primária\" [agrotóxicos]", "parágrafo 3 – \"Mas este é um valor subestimado.\" [cada dólar gasto na compra de agrotóxicos]", "parágrafo 5 – \"Todos os milhares de profissionais envolvidos no comércio e na manipulação dessas substâncias são potenciais vítimas.\" [agrotóxicos]", "parágrafo 5 – \"E, além deles, 'todos nós, diariamente, a cada refeição, ingerimos princípios ativos de agrotóxicos em nossos alimentos'\" [especialistas]", "parágrafo 6 – \"Segundo eles, 'a humanidade domina a agricultura há pelo menos 10 mil anos'\" [produtores e especialistas]"], "c": "C"}, {"n": 8, "disc": "LP", "st": "O acento grave indicativo de crase está empregado de acordo com a norma-padrão da língua portuguesa, na palavra destacada em:", "o": ["A água consumida pela população apresenta resíduos de agrotóxicos, o que prejudica a vida de todos que à ingerem, por estar contaminada.", "A produção de alimentos orgânicos, sem agrotóxicos, representa um avanço considerável na economia brasileira, pois beneficia à agricultura familiar.", "Os especialistas chegaram à conclusão de que os governos precisam tomar medidas para prevenir os estragos causados pelos agrotóxicos.", "A valorização do meio ambiente permite aos seus defensores alcançarem os objetivos propostos e se aplica à diversas situações que envolvem o bem-estar da população.", "Os agricultores responsáveis pelas colheitas de soja foram forçados à adotar práticas para prevenir a ameaça de redução de suas safras."], "c": "C"}, {"n": 9, "disc": "LP", "st": "O emprego da vírgula está plenamente de acordo com as exigências da norma-padrão da língua portuguesa em:", "o": ["A enorme quantidade de agrotóxicos empregados, para exterminar pragas nas plantações contamina as águas e os solos de toda a região.", "A função dos agrotóxicos de acordo com os produtores, é reduzir a quantidade de pragas e facilitar a vida do agricultor para que ele tenha seus lucros garantidos.", "A presença de pragas nos alimentos, pode sofrer uma grande redução se for possível dar preferência a alimentos cozidos ao invés de in natura.", "Estudos realizados em várias partes do mundo têm provado que os alimentos orgânicos, sem uso de fertilizantes químicos, respeitam a saúde dos trabalhadores e dos consumidores.", "O depoimento de especialistas que estudam meios de melhorar a produção agrícola, revela que o extermínio de pragas na lavoura tem sido realizado de forma inadequada."], "c": "D"}, {"n": 10, "disc": "LP", "st": "De acordo com as regras de concordância nominal da norma-padrão da língua portuguesa, a palavra destacada está empregada corretamente em:", "o": ["A mudança das leis sobre o uso de agrotóxicos e a repressão dos órgãos de vigilância sanitária devem ser implementadas com urgência para evitar mais mortes.", "As leis instituídas para proteger os cidadãos e os ensinamentos dos estudiosos sobre o uso de agrotóxicos devem ser divulgadas para que tenham alcance geral.", "O desenvolvimento de novas estratégias de plantio e a substituição da agricultura convencional pela orgânica são consideradas uma exigência dos tempos atuais para muitos produtores rurais.", "Os estudos realizados por especialistas de saúde em laboratórios e a busca por exterminar doenças contagiosas são indicativas do progresso da medicina nos últimos tempos.", "Os procedimentos orientados pelos especialistas e a concessão de verbas públicas pelos órgãos governamentais têm sido entendidas como imprescindíveis para o desenvolvimento da agricultura familiar."], "c": "A"}, {"n": 11, "disc": "MAT", "st": "Considerando-se os números reais 275, 350 e 437, o menor e o maior deles são, respectivamente,", "o": ["437 e 350", "437 e 275", "350 e 275", "350 e 437", "275 e 437"], "c": "A"}, {"n": 12, "disc": "MAT", "st": "Suponha que, em 1994, um artigo custasse R$ 13,91 e, exatos 28 anos depois (336 meses), ele passasse a custar R$ 100,00. Suponha, também, que, para esse período, a taxa mensal de aumento no preço desse artigo tenha sido igual a k%, ou seja, a cada mês o preço do artigo sofreu um aumento de k% em relação ao preço do mês anterior. O valor de k pode ser dado por\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]", "o": ["k = [ (100/13,91)^(1/336) − 1 ] × 100", "k = [ (100/13,91)^336 − 1 ] × 100", "k = [ (100/13,91) − 1 ]^(1/336) × 100", "k = [ (100/13,91) + 1 ]^336 × 0,01", "k = [ (100/13,91) + 1 ]^(1/336) × 0,01"], "c": "A"}, {"n": 13, "disc": "MAT", "st": "Uma empresa, em reconhecimento ao desempenho de 10 de seus funcionários, decide dar-lhes um bônus. Para tanto, a empresa distribuiu um total de R$ 25.000,00: 6 funcionários receberam R$ 2.000, 2 receberam R$ 2.500 e 2 receberam R$ 4.000. Nessas condições, o desvio padrão dos bônus pagos é dado por\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]", "o": ["√[ (36·2000² + 4·2500² + 4·4000²) / 10 ]", "√[ (36·500² + 4·2500² + 4·1500²) / 10 ]", "√[ (6·2000² + 2·2500² + 2·4000²) / 10 ]", "√[ (500² + 1500²) / 10 ]", "√[ (6·500² + 2·1500²) / 10 ]"], "c": "E"}, {"n": 14, "disc": "MAT", "st": "O quadrado de um número real x é representado por x², e é definido por x² = x·x. A condição x ≤ x² é FALSA quando x é igual a", "o": ["0", "1/2", "1", "−1/2", "3/2"], "c": "B"}, {"n": 15, "disc": "MAT", "st": "Em uma escola, há cinco turmas que fizeram uma prova de matemática, e cada uma possui 60 estudantes. As notas obtidas em cada turma tiveram as seguintes distribuições: Turma 1: 30 notas iguais a 0 e 30 notas iguais a 10; Turma 2: 30 notas iguais a 2 e 30 notas iguais a 8; Turma 3: 30 notas iguais a 3 e 30 notas iguais a 7; Turma 4: 30 notas iguais a 4 e 30 notas iguais a 6; Turma 5: 60 notas iguais a 5. Em qual das turmas o desvio-padrão das notas obtidas foi igual a zero?", "o": ["Turma 1", "Turma 2", "Turma 3", "Turma 4", "Turma 5"], "c": "E"}, {"n": 16, "disc": "MAT", "st": "Um carro partiu de um ponto A até um ponto B andando com uma velocidade constante de 80 km/h. Posteriormente o carro refez o mesmo percurso, mas agora com velocidade constante igual a 100 km/h, e gastou 30 minutos a menos do que na primeira vez. Quanto tempo o carro levou para ir do ponto A ao ponto B, na primeira vez?", "o": ["3h", "2h30min", "2h", "1h50min", "1h30min"], "c": "B"}, {"n": 17, "disc": "MAT", "st": "Em uma fábrica, há um tanque cuja capacidade máxima é de 180 m³. Estando o tanque vazio, três torneiras de mesma vazão gastam oito horas para enchê-lo completamente. Um outro tanque, com capacidade máxima de x metros cúbicos, está sendo construído e, quando vazio, cinco torneiras (com a mesma vazão das anteriores) deverão enchê-lo completamente em apenas y horas. Nessas condições, o valor de y em função de x é definido por", "o": ["y = 2x/81", "y = 2x/54", "y = 2x/45", "y = 2x/27", "y = 2x/75"], "c": "E"}, {"n": 18, "disc": "MAT", "st": "Em um torneio de videogame, o menino J disputou apenas três partidas, fazendo um total de 2.660 pontos. Na segunda partida, ele fez 410 pontos a mais do que fez na primeira; na terceira partida, fez apenas metade de pontos que fez na segunda. O número de pontos feitos por J, apenas na primeira partida, quando dividido por 5, deixa resto igual a", "o": ["4", "3", "2", "1", "0"], "c": "B"}, {"n": 19, "disc": "MAT", "st": "O triângulo ABC é retângulo em A. Sabe-se que o comprimento da hipotenusa BC é igual a 20 cm, e que o comprimento do cateto AB é igual a 12 cm. Qual é a área, em cm², do triângulo ABC?", "o": ["16", "48", "60", "96", "240"], "c": "D"}, {"n": 20, "disc": "MAT", "st": "Um consumidor foi ao mercado, comprou 1 kg de batata e 1 kg de cebola e pagou R$ 11,00. No dia seguinte, ele comprou 3 kg de batata e 2 kg de cebola e pagou R$ 28,00. No terceiro dia, ele comprou 2 kg de batata e 1 kg de cebola. Considerando-se que os preços não foram alterados durante esse período, que valor, em R$, o consumidor pagou no terceiro dia?", "o": ["5", "6", "16", "17", "39"], "c": "D"}, {"n": 21, "disc": "CE", "st": "A distribuição eletrônica e a posição na tabela periódica, do elemento químico com número atômico 12, em seu estado fundamental, são, respectivamente,", "o": ["1s² 2s² 2p⁴ 3s² ; 2º período, grupo 2", "1s² 2s² 2p⁶ 3s² ; 2º período, grupo 3", "1s² 2s² 2p⁴ 3s² ; 3º período, grupo 2", "1s² 2s² 2p⁶ 3s² ; 3º período, grupo 3", "1s² 2s² 2p⁶ 3s² ; 3º período, grupo 2"], "c": "E"}, {"n": 22, "disc": "CE", "st": "A molécula de oxigênio pode ser representada como :Ö=Ö: , segundo o modelo de estruturas de Lewis. O número de elétrons que estão sendo compartilhados para formar a ligação covalente é igual a", "o": ["2", "4", "8", "10", "12"], "c": "B"}, {"n": 23, "disc": "CE", "st": "Um balão flexível contém um gás que se comporta idealmente. Na situação inicial, o volume ocupado pelo gás é de 35,0 m³ a 25,0 °C e 1,00 atm. Considere o aquecimento do balão, com expansão do volume para 50,0 m³, de tal forma que a pressão permaneceu constante. Nessa situação final, a temperatura do balão, em K, é (Dado: T(K) = T(°C) + 273)", "o": ["152,7", "218,1", "340,6", "425,7", "510,8"], "c": "D"}, {"n": 24, "disc": "CE", "st": "À luz da teoria de ácidos e bases de Brönsted-Lowry, conclui-se que um(a)", "o": ["ácido mais forte tem maior tendência à transferência de um íon H⁺ do que um ácido mais fraco.", "ácido é a espécie com tendência de aceitar um íon H⁺.", "base é a espécie com tendência de transferir um íon H⁺.", "base mais forte tem menor tendência para aceitar um íon H⁺ do que uma base mais fraca.", "amina primária (–NH₂) é uma espécie ácida e transfere íons H⁺."], "c": "A"}, {"n": 25, "disc": "CE", "st": "O PTFE é um fluoropolímero sintético com alta massa molecular, cujo precursor monomérico é o tetrafluoretileno (TFE). O PTFE é conhecido por ser antiaderente, ter alta estabilidade térmica e baixa reatividade química. Das estruturas a seguir, a que representa a unidade de repetição do PTFE é a\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]", "o": ["–(CH₂–CH₂)ₙ– (polietileno)", "–(CHF–CHF)ₙ–", "–(CF₂–CF₂)ₙ– (politetrafluoretileno, PTFE)", "–(CH₂–CHF)ₙ–", "estrutura fluorada com átomo de oxigênio na cadeia"], "c": "C"}, {"n": 26, "disc": "CE", "st": "O entendimento do efeito fotoelétrico, no início do século XX, desempenhou um papel crucial no desenvolvimento da teoria quântica e gerou avanços na compreensão da natureza elétrica da matéria. O princípio fundamental do efeito fotoelétrico consiste na", "o": ["emissão de luz quando elétrons colidem com átomos de uma superfície metálica.", "ejeção de elétrons de uma superfície metálica quando ela é exposta à luz.", "reflexão total da luz em uma superfície metálica.", "refração total da luz em uma superfície transparente.", "produção de um campo elétrico em resposta à luz incidida."], "c": "B"}, {"n": 27, "disc": "CE", "st": "Considere um sistema de equações que envolvem reações de hidrocarbonetos\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nAs substâncias X, Y e Z são, respectivamente", "o": ["CH₃Cl, CH₄, HONO₂", "CH₃Cl, HONO₂, CH₄", "CH₄, HONO₂, CH₃Cl", "CH₄, CH₃Cl, HONO₂", "HONO₂, CH₄, CH₃Cl"], "c": "D"}, {"n": 28, "disc": "CE", "st": "Um carrinho utilizado na movimentação de cargas em um armazém é puxado do repouso até uma velocidade de 2,0 m/s em 4 segundos e com movimento uniformemente variado. A distância, em metros, percorrida pelo carrinho durante esse tempo é", "o": ["2", "4", "6", "8", "10"], "c": "B"}, {"n": 29, "disc": "CE", "st": "Uma viga de seção transversal retangular de dimensões b × h é submetida a um momento fletor M, conforme indicado na Figura.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nA tensão normal compressiva máxima na seção mostrada atuará no(s) ponto(s)", "o": ["A, apenas", "B, apenas", "A e D", "A e B", "B e C"], "c": "E"}, {"n": 30, "disc": "CE", "st": "O descarregamento de uma caixa de massa m é realizado com o deslizamento da caixa por um plano inclinado de α graus (10° < α < 30°), conforme mostrado na Figura, com atrito nulo entre a caixa e o plano.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nSendo g a aceleração da gravidade, a aceleração de deslizamento da caixa sobre o plano", "o": ["é nula.", "é igual a g.", "independe do ângulo α.", "independe da massa da caixa.", "é proporcional à massa da caixa."], "c": "D"}, {"n": 31, "disc": "CE", "st": "Na Figura, representa-se uma força concentrada F, aplicada à extremidade da viga biapoiada ABCD, com o objetivo de elevar uma carga posicionada conforme indicado.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nO menor valor da força F, expressa em newtons, para elevar uma carga P de 2.100 N, que faz com que a reação no apoio A seja nula, é", "o": ["525", "700", "1.575", "1.050", "2.100"], "c": "B"}, {"n": 32, "disc": "CE", "st": "A estrutura representada na Figura é constituída de 3 barras unidas pelo pino B. Considere que as barras 1 e 2 tenham área de seção transversal de 1,0 cm², e a barra 3, área de 1,2 cm².\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nAs tensões normais que atuam nas barras 1, 2 e 3 para suportar a carga P de 2.400 N são, em MPa, respectivamente, de", "o": ["20 (compressão), 24 (compressão) e 24 (tração)", "20 (tração), 20 (compressão) e 24 (tração)", "24 (compressão), 24 (tração) e 20 (compressão)", "24 (compressão), 24 (compressão) e 20 (tração)", "24 (compressão), 24 (compressão) e 24 (tração)"], "c": "D"}, {"n": 33, "disc": "CE", "st": "O Sistema Internacional de Unidades (SI) admite a utilização de múltiplos e submúltiplos das unidades. Uma força de 1,0 kN que atua no sentido de comprimir uma barra cuja seção transversal é de 5,0 cm² provocará uma tensão normal compressiva, expressa em MPa, de", "o": ["0,1", "0,2", "1,0", "2,0", "10,0"], "c": "D"}, {"n": 34, "disc": "CE", "st": "Todo processo de transformação do estado de uma determinada substância em uma cadeia de processamento, para a composição de um produto final, envolve operações que necessitam de controle, a fim de manter algumas grandezas dentro de valores pré-estabelecidos. A vazão é uma das principais variáveis desse tipo de processo e pode ser medida utilizando-se um medidor de vazão por área variável, no qual um flutuador varia sua posição dentro de um tubo cônico, proporcionalmente à vazão do fluido. Esse tipo de medidor é denominado", "o": ["célula capacitiva", "manômetro", "placa orifício", "rotâmetro", "tubo Venturi"], "c": "D"}, {"n": 35, "disc": "CE", "st": "Considere uma força magnética atuando em um condutor retilíneo de comprimento l, percorrido por uma corrente i. Esse condutor está imerso em uma região onde existe um campo magnético uniforme (B), que forma um ângulo θ com o condutor. Essa força magnética é representada pela seguinte equação:\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]", "o": ["F = B i l sen θ", "F = B i sen θ", "F = B i l cos θ", "F = B i l tan θ", "F = B i l"], "c": "A"}, {"n": 36, "disc": "CE", "st": "Um técnico atuante na área de óleo e gás deve ter conhecimento dos riscos inerentes ao trabalho de extração, refino e manipulação de petróleo e de seus derivados. Um conhecimento muito importante é sobre os sistemas instrumentados de segurança que operam acima da camada de controle de processo e que atuam na presença de falha de algum componente ou do desvio dos limites toleráveis de operação do processo, garantindo a segurança dos trabalhadores e das instalações. O nível de integridade de segurança (SIL) que oferece o maior nível de redução do fator de risco é o", "o": ["0", "3", "4", "5", "6"], "c": "C"}, {"n": 37, "disc": "CE", "st": "A partir de dois métodos de conversão de sinal — método de equilíbrio de força e método de equilíbrio de movimento — são fabricados os tipos de transmissores", "o": ["eletrônicos e analógicos", "digitais", "inteligentes", "pneumáticos", "smart"], "c": "D"}, {"n": 38, "disc": "CE", "st": "Em metrologia, há um conceito associado ao conjunto de condições que incluem o mesmo procedimento de medição, os mesmos operadores, o mesmo sistema de medição, as mesmas condições de operação e o mesmo local de medição. Trata-se do conceito de condições de", "o": ["abrangência", "aleatoriedade", "definibilidade", "repetibilidade", "reprodutibilidade"], "c": "D"}, {"n": 39, "disc": "CE", "st": "O dispositivo representado na Figura é um tubo de Venturi, que compreende duas seções, a maior com área S1, e a menor, com área S2, ambas conhecidas. Nas direções verticais correspondentes aos pontos P1 e P2, são conectados dois tubos verticais, ambos com as extremidades superiores abertas e as inferiores em comunicação com o interior desse tubo, por onde um fluido conhecido é canalizado. Considere que v1 é a velocidade na região S1; v2, a velocidade na região S2 (garganta); e Δh, a medida do desnível do líquido existente nos tubos verticais.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nEsse dispositivo é usado para medir", "o": ["calor", "temperatura absoluta", "temperatura relativa", "vazão", "viscosidade"], "c": "D"}, {"n": 40, "disc": "CE", "st": "O recipiente cilíndrico de diâmetro igual a 12 m, representado na Figura, é aberto no topo e contém água, cuja densidade é igual a 1.000 kg/m³, até a linha indicada. O nível da água no interior do reservatório está a uma altura h1 = 10,8 m, e a tubulação de saída, um duto circular com 20 cm² de área de seção reta, está a uma altura h2 = 9 m.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nConsiderando-se a situação apresentada, a vazão de saída de água, em kg/s, é igual a (Dado: g = 10 m/s²)", "o": ["0,012", "0,12", "1,2", "12", "120"], "c": "D"}, {"n": 41, "disc": "CE", "st": "O dióxido de enxofre é um gás razoavelmente solúvel em água, sendo usado para a produção industrial de ácido sulfúrico. Uma matéria prima contendo enxofre elementar sofreu uma reação na presença de excesso de gás oxigênio, para formar 50.000 L do gás SO₂, medido nas condições normais de temperatura e pressão (CNTP) e assumindo comportamento ideal dos gases, como mostrado na reação: S(s) + O₂(g) → SO₂(g). A reação do enxofre foi completa, e a massa da matéria prima era 80,0 kg. A partir dessa informação, a percentagem, em massa, de enxofre elementar na matéria prima é, aproximadamente, (Dado: R = 0,082 atm L mol⁻¹ K⁻¹)", "o": ["25%", "36%", "44%", "73%", "82%"], "c": "E"}, {"n": 42, "disc": "CE", "st": "Ao se inserir um pedaço de ferro metálico em uma solução aquosa de sulfato de cobre, observa-se a formação espontânea de uma camada acobreada na superfície da placa de ferro. Sobre essa reação, verifica-se que o", "o": ["Fe(s) sofre oxidação.", "processo envolve 1 mol de elétrons por 1 mol de Fe(s) reagido.", "Cu²⁺(aq) perde elétrons.", "Cu(s) reduz formando Cu²⁺(aq).", "potencial padrão de redução do Cu(s) é menor do que o do Fe(s)."], "c": "A"}, {"n": 43, "disc": "CE", "st": "A decomposição do carbonato de cálcio produz CO₂, como representado na reação termoquímica: CaCO₃(s) → CaO(s) + CO₂(g); ΔH⁰ = +179 kJ. Considerando-se o comportamento ideal do gás e o rendimento máximo da reação, a energia necessária, em MJ, para produzir 36 m³ de CO₂, medido nas condições normais de temperatura e pressão (CNTP) é, aproximadamente, (Dados: R × T = 24,4 atm L mol⁻¹; M = 106)", "o": ["-132", "-179", "+132", "+264", "+528"], "c": "D"}, {"n": 44, "disc": "CE", "st": "Uma solução comercial de um algicida contém 30 g de cloreto de N,N-2-metil propilamônio em 100 mL de solução. Para tratar situações de elevada formação de algas, a receita é separar uma alíquota de 5,0 mL da solução comercial, diluindo em água para formar 4,0 L de solução final. A concentração do princípio ativo, em g L⁻¹, dessa solução final é, aproximadamente,", "o": ["0,15", "0,26", "0,38", "0,52", "0,90"], "c": "C"}, {"n": 45, "disc": "CE", "st": "Uma solução aquosa de hidróxido de sódio tem densidade igual a 1,40 g mL⁻¹ e 40% de teor do soluto, em massa. A concentração, em mol L⁻¹, do hidróxido na solução é (Dado: M(NaOH) = 40 g mol⁻¹)", "o": ["4", "8", "10", "14", "16"], "c": "D"}, {"n": 46, "disc": "CE", "st": "O bicarbonato de sódio (NaHCO₃) é um reagente usado para finalidades diversas por conta de sua capacidade para neutralização de ácidos e para produção do gás CO₂. Em contato com soluções aquosas ácidas, reage como representado: NaHCO₃(s) + H₃O⁺(aq) → Na⁺(aq) + 2H₂O(l) + CO₂(g). Considerando-se a proporção estequiométrica e o rendimento completo de reação, a massa de bicarbonato de sódio necessária para neutralizar 20,0 L de solução aquosa, cujo pH medido foi 2, é", "o": ["8,4", "16,8", "24,6", "33,6", "40,2"], "c": "B"}, {"n": 47, "disc": "CE", "st": "Nanopartículas de prata (AgNP) são nanoestruturas contendo algumas centenas de átomos de Ag, cuja superfície apresenta carga elétrica que as mantém dispersas em meio aquoso. Baseado no tamanho e no grau de espalhamento de luz incidente, calculou-se em 1 × 10⁻⁵ mol L⁻¹ a concentração de AgNP na dispersão. A partir do tamanho médio, determinou-se que haveria 500 átomos de Ag por nanopartícula. Considerando-se esses dados, verifica-se que a massa de prata, em mg, presente em 1 mL de dispersão é (Dados: 1 mol = 6 × 10²³ unidades; M(Ag) = 108 g mol⁻¹)", "o": ["0,028", "0,054", "0,14", "0,28", "0,54"], "c": "E"}, {"n": 48, "disc": "CE", "st": "A protonação de uma amina biogênica requer absorção de calor, atingindo uma situação de equilíbrio no meio aquoso, como descrito na reação: H₂N-CH₂-CH₂-CH₂-CH₂-NH₂(aq) + 2 H⁺(aq) ⇌ ⁺H₃N-CH₂-CH₂-CH₂-CH₂-NH₃⁺(aq). Nesse sistema, verifica-se que o(a)", "o": ["aumento da concentração de H⁺ deslocaria a reação para a formação de ⁺H₃N-CH₂-CH₂-CH₂-CH₂-NH₃⁺.", "resfriamento da solução deslocaria a reação para a formação de ⁺H₃N-CH₂-CH₂-CH₂-CH₂-NH₃⁺.", "equilíbrio não dependeria do pH do meio.", "constante de equilíbrio seria K = [⁺H₃N-CH₂-CH₂-CH₂-CH₂-NH₃⁺]/[H⁺]².", "diluição da solução com água não perturbaria o equilíbrio."], "c": "A"}, {"n": 49, "disc": "CE", "st": "Se um sensor analógico de nível transmitir um sinal elétrico em tensão de 1 Vcc a 6 Vcc para um range de 0,7 m a 2,2 m, qual deverá ser a sensibilidade, em Vcc/m, desse sensor?", "o": ["2,27", "2,73", "4,00", "4,67", "3,33"], "c": "E"}, {"n": 50, "disc": "CE", "st": "Um cilindro longo de um material de condutividade térmica k, comprimento L e raio da seção reta R, está colocado entre uma fonte fria à temperatura TF e uma fonte quente à temperatura TQ. O fluxo estacionário de calor que passa por esse cilindro é J1. Um outro cilindro, feito de outro material, com condutividade térmica k/2, comprimento 4L e raio de seção reta 4R, é colocado entre as mesmas fontes, fria e quente. Para esse segundo cilindro, o fluxo estacionário de calor é J2. A relação entre os fluxos estacionários de calor, J2/J1, é igual a", "o": ["16", "4", "2", "1", "1/2"], "c": "C"}, {"n": 51, "disc": "CE", "st": "Em um acelerador eletrostático linear, com comprimento igual a 6,0 m, prótons são acelerados a partir do repouso até uma velocidade final de 4,0 × 10⁶ m/s. Qual é a diferença de potencial, em kV, na qual esse acelerador opera? (Dados: carga elétrica do próton = 1,6 × 10⁻¹⁹ C; massa do próton = 1,7 × 10⁻²⁷ kg)", "o": ["8,5", "17", "34", "85", "170"], "c": "D"}, {"n": 52, "disc": "CE", "st": "Uma máquina térmica reversível realiza trabalho em ciclos, de modo que retira 240 J de uma fonte quente a 627 °C e rejeita 80 J em uma fonte fria à temperatura TF. Qual é, em °C, a temperatura TF?", "o": ["-273", "27", "327", "627", "900"], "c": "B"}, {"n": 53, "disc": "CE", "st": "A energia interna de um gás ideal diatômico depende apenas de sua temperatura. Esse gás ideal passa por um processo isotérmico, em contato com uma fonte térmica à temperatura T. Observa-se que ele realiza um trabalho total de 350 J sobre o meio ambiente. O calor trocado pelo gás com a fonte térmica T é igual a", "o": ["175 J, e o calor é rejeitado pelo gás.", "175 J, e o calor é absorvido pelo gás.", "350 J, e o calor é rejeitado pelo gás.", "350 J, e o calor é absorvido pelo gás.", "700 J, e o calor é rejeitado pelo gás."], "c": "D"}, {"n": 54, "disc": "CE", "st": "Um grande imã gera, em uma região do espaço, um campo magnético uniforme, orientado verticalmente para cima. Um feixe de elétrons é lançado horizontalmente, nessa região. Logo após entrar nessa região, esse feixe de elétrons é", "o": ["acelerado, mantendo sua direção original.", "freado, mantendo sua direção original.", "defletido verticalmente para cima.", "defletido verticalmente para baixo.", "defletido no plano horizontal, perpendicularmente à direção de sua velocidade."], "c": "E"}, {"n": 55, "disc": "CE", "st": "Uma partícula pontual A, de massa 1,5 × 10⁻⁶ g, tem carga elétrica igual a +2,0 × 10⁻⁶ C e está fixa na origem do eixo x. Na posição x = +4,0 cm, encontra-se outra partícula pontual B, com metade da massa e o dobro da carga elétrica da partícula A. O módulo, em newtons, e o sentido da força elétrica sentida pela partícula A devido à partícula B são, respectivamente, (Dado: constante elétrica k = 9,0 × 10⁹ N m²/C²)", "o": ["22,5, sentido negativo de x", "45, sentido negativo de x", "22,5, sentido positivo de x", "45, sentido positivo de x", "nulos, já que o efeito das massas anula a força elétrica"], "c": "B"}, {"n": 56, "disc": "CE", "st": "Na Figura, são mostrados 3 vasos, A, B e C, abertos para a atmosfera. Esses vasos têm formas diferentes, mas foram preenchidos com água até o mesmo nível.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nA relação entre as pressões no fundo de cada um deles é descrita por", "o": ["PB > PA > PC", "PB = PA > PC", "PB = PA = PC", "PB > PA = PC", "PB < PA < PC"], "c": "C"}, {"n": 57, "disc": "CE", "st": "Na Tabela são apresentadas algumas características termodinâmicas de um ciclo ideal de refrigeração por compressão de vapor: calor trocado no evaporador = 120 kJ/kg; capacidade = 4,8 kW; trabalho do compressor = 40 kJ/kg; razão de circulação do refrigerante = 0,04 kg/s. Com base nessas características, qual é o valor do coeficiente de eficácia desse ciclo?", "o": ["0,12", "4,80", "3,00", "0,33", "1,60"], "c": "C"}, {"n": 58, "disc": "CE", "st": "Um técnico precisava trocar um medidor de vazão e consultou o almoxarifado sobre a disponibilidade desse tipo de instrumento. Sabendo-se que o medidor que será substituído é do tipo direto mássico, que medidor de vazão esse técnico deverá receber do almoxarifado?", "o": ["Coriolis", "Bocal de vazão", "Placa de orifício", "Tubo de Pitot", "Tubo de Venturi"], "c": "A"}, {"n": 59, "disc": "CE", "st": "Um sistema de primeira ordem, como, por exemplo, um sistema para controle de nível, apresenta a seguinte função de transferência: G(s) = 25/(s + 25). Qual é o valor, em segundos, da constante de tempo desse sistema?", "o": ["0,01", "0,02", "0,03", "0,04", "0,05"], "c": "D"}, {"n": 60, "disc": "CE", "st": "As bombas industriais podem ser classificadas em dois grandes grupos: as bombas dinâmicas e as bombas volumétricas, cada um com seus subgrupos. A bomba que corresponde a uma bomba volumétrica do tipo rotativa é a", "o": ["centrífuga", "de pistão", "de êmbolo", "de diafragma", "de palhetas deslizantes"], "c": "E"}]</script>
+<script>
+(function(){
+"use strict";
+var QUESTIONS = JSON.parse(document.getElementById('qdata').textContent);
+var DISC = {LP:"Língua Portuguesa", MAT:"Matemática", CE:"Conhecimentos Específicos"};
+var DISC_ORDER = ["LP","MAT","CE"];
+var LETTERS = ["A","B","C","D","E"];
+var KEY="cockpit_transpetro_v1";
+
+/* ---------- store ---------- */
+function load(){ try{ var r=localStorage.getItem(KEY); return r?JSON.parse(r):null; }catch(e){ return null; } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+var state = load() || { attempts:[], simulados:[], theme:null };
+if(!state.attempts) state.attempts=[]; if(!state.simulados) state.simulados=[];
+
+/* live simulado (not yet finished) kept in memory + persisted */
+function qById(n){ for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].n===n) return QUESTIONS[i]; } }
+
+/* ---------- helpers ---------- */
+function pct(a,b){ return b? Math.round(a/b*1000)/10 : 0; }
+function fmtPct(v){ return (v==null||isNaN(v))?"—":(v.toFixed(1).replace(".",",")+"%"); }
+function fmtDur(s){ if(s==null||s<0)return"--:--:--"; s=Math.floor(s); var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60; return [h,m,x].map(function(n){return String(n).padStart(2,"0");}).join(":"); }
+function fmtDate(ts){ var d=new Date(ts); return d.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"}); }
+function el(html){ var t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstChild; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+/* ---------- icons ---------- */
+var I={
+ home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>',
+ exam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+ study:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v5h5"/></svg>',
+ perf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+ hist:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 8v4l3 2"/></svg>',
+ sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5 4 4M20 20l-1-1M19 5l1-1M4 20l1-1"/></svg>',
+ moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ empty:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h10"/></svg>'
+};
+
+var NAV=[["inicio","Início",I.home],["simulado","Simulado",I.exam],["estudar","Estudar",I.study],["desempenho","Desempenho",I.perf],["historico","Histórico",I.hist]];
+
+/* ---------- stats ---------- */
+function overall(){ var a=state.attempts, c=0; for(var i=0;i<a.length;i++) if(a[i].correct)c++; return {answered:a.length,correct:c,wrong:a.length-c,pct:pct(c,a.length),uniq:new Set(a.map(function(x){return x.q;})).size}; }
+function byDisc(){ var m={}; state.attempts.forEach(function(a){ var d=qById(a.q); if(!d)return; var k=d.disc; if(!m[k])m[k]={ans:0,cor:0}; m[k].ans++; if(a.correct)m[k].cor++; }); return m; }
+function wrongQs(){ // latest attempt per question that is wrong
+ var last={}; state.attempts.forEach(function(a){ last[a.q]=a; }); var out=[];
+ Object.keys(last).forEach(function(q){ if(!last[q].correct) out.push({q:+q,ts:last[q].ts}); });
+ return out.sort(function(a,b){return b.ts-a.ts;});
+}
+function answeredSet(){ return new Set(state.attempts.map(function(a){return a.q;})); }
+function wrongSet(){ var last={}; state.attempts.forEach(function(a){last[a.q]=a;}); var s=new Set(); Object.keys(last).forEach(function(q){ if(!last[q].correct) s.add(+q); }); return s; }
+
+function record(q, sel, correct, origin, simId){
+ state.attempts.push({q:q, s:sel, correct:correct, origin:origin, sim:simId||null, ts:Date.now()});
+ save();
+}
+
+/* ================= ROUTER ================= */
+var route="inicio", view=null;
+function go(r){ route=r; view=null; render(); window.scrollTo(0,0); }
+function render(){
+ renderNav();
+ var app=document.getElementById("app"); app.innerHTML="";
+ if(view){ app.appendChild(view); return; }
+ ({inicio:vInicio, simulado:vSimulado, estudar:vEstudar, desempenho:vDesempenho, historico:vHistorico}[route]||vInicio)(app);
+}
+function renderNav(){
+ var t=document.getElementById("tabs"); t.innerHTML="";
+ NAV.forEach(function(n){ var b=el('<button class="tab '+(route===n[0]?"on":"")+'">'+n[2]+'<span>'+n[1]+'</span></button>'); b.onclick=function(){go(n[0]);}; t.appendChild(b); });
+ var bot=document.getElementById("bottom"); bot.innerHTML="";
+ NAV.forEach(function(n){ var b=el('<button class="bt '+(route===n[0]?"on":"")+'">'+n[2]+'<span>'+n[1]+'</span></button>'); b.onclick=function(){go(n[0]);}; bot.appendChild(b); });
+}
+
+/* ================= INÍCIO ================= */
+function vInicio(app){
+ var o=overall(), bd=byDisc(), sims=state.simulados.filter(function(s){return s.finished;});
+ var wrap=el('<div class="stack"></div>');
+ wrap.appendChild(el('<div><div class="eyebrow">Minha preparação</div><h1 class="h-page" style="margin-top:6px">Bom estudo. Foco na prova.</h1><p class="muted" style="margin:6px 0 0">Diagnóstico por questões — faça, erre, entenda, refaça.</p></div>'));
+
+ var stats=el('<div class="grid stats"></div>');
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono tile-accent">'+o.answered+'</div><div class="k">Questões respondidas</div></div>'));
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono tile-ok">'+fmtPct(o.pct)+'</div><div class="k">Aproveitamento</div></div>'));
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono">'+sims.length+'</div><div class="k">Simulados feitos</div></div>'));
+ wrap.appendChild(stats);
+
+ // per discipline
+ var dc=el('<div class="card pad"><div class="eyebrow">Desempenho por disciplina</div></div>');
+ if(o.answered===0){ dc.appendChild(el('<p class="muted" style="margin:12px 0 0">Ainda sem dados. Faça a prova ou estude algumas questões.</p>')); }
+ else DISC_ORDER.forEach(function(k){ var d=bd[k]||{ans:0,cor:0}; var p=pct(d.cor,d.ans); var tone=p>=70?"ok":(p<50&&d.ans?"err":"");
+   dc.appendChild(el('<div class="discrow"><span class="nm">'+DISC[k]+'</span><span class="pc">'+(d.ans?fmtPct(p):"—")+'</span><div class="bar '+tone+'"><i style="width:'+(d.ans?p:0)+'%"></i></div></div>')); });
+ wrap.appendChild(dc);
+
+ // last simulado
+ if(sims.length){ var s=sims[sims.length-1];
+  var c=el('<div class="card pad"></div>');
+  c.appendChild(el('<div class="eyebrow">Último simulado</div>'));
+  c.appendChild(el('<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:10px"><h3 style="font-size:17px">'+esc(s.title)+'</h3><span class="badge real">'+fmtDate(s.ts)+'</span></div>'));
+  c.appendChild(el('<div style="display:flex;gap:20px;align-items:baseline;margin-top:8px"><div class="mono" style="font-family:Archivo;font-weight:800;font-size:26px">'+s.correct+' / '+s.total+'</div><div class="mono tile-ok" style="font-size:18px;font-weight:600">'+fmtPct(s.pct)+'</div><div class="mono muted" style="margin-left:auto">'+I.clock+' '+fmtDur(s.time)+'</div></div>'));
+  var b=el('<button class="btn ghost sm" style="margin-top:14px">Ver resultado</button>'); b.onclick=function(){ openResult(s.id); }; c.appendChild(b);
+  wrap.appendChild(c);
+ }
+
+ var ctas=el('<div class="s3" style="display:grid;gap:12px;grid-template-columns:1fr"></div>');
+ var b1=el('<button class="btn">'+I.exam+' Fazer a prova de 2023</button>'); b1.onclick=function(){go("simulado");};
+ var b2=el('<button class="btn sec">'+I.study+' Estudar questões</button>'); b2.onclick=function(){go("estudar");};
+ ctas.appendChild(b1); ctas.appendChild(b2); wrap.appendChild(ctas);
+
+ wrap.appendChild(el('<p class="note">Seus dados ficam salvos <b>neste navegador</b> (localStorage). Não sincronizam entre aparelhos e sào apagados se você limpar os dados do site.</p>'));
+ app.appendChild(wrap);
+}
+
+/* ================= SIMULADO ================= */
+function activeSim(){ for(var i=0;i<state.simulados.length;i++){ if(!state.simulados[i].finished) return state.simulados[i]; } return null; }
+
+function vSimulado(app){
+ var act=activeSim();
+ var wrap=el('<div class="stack"></div>');
+ wrap.appendChild(el('<div><div class="eyebrow">Provas reais</div><h1 class="h-page" style="margin-top:6px">Simulado</h1></div>'));
+
+ var c=el('<div class="card pad"></div>');
+ c.appendChild(el('<div class="row" style="justify-content:space-between;align-items:center"><h3 style="font-size:18px">Transpetro 2023 — Dutos e Terminais</h3><span class="badge real">PROVA REAL</span></div>'));
+ c.appendChild(el('<p class="muted" style="margin:8px 0 0">Cesgranrio · 60 questões · 10 Português, 10 Matemática, 40 Conhecimentos Específicos. Gabarito definitivo oficial.</p>'));
+ c.appendChild(el('<div class="row" style="margin-top:6px"><span class="badge">Prova completa</span><span class="badge">Sem correção durante a prova</span><span class="badge">Cronômetro</span></div>'));
+
+ if(act){
+  c.appendChild(el('<hr class="sep">'));
+  c.appendChild(el('<p style="font-weight:500">Você tem um simulado em andamento.</p>'));
+  var cont=el('<div class="row" style="margin-top:10px"></div>');
+  var bc=el('<button class="btn sm">Continuar simulado</button>'); bc.onclick=function(){ runSimulado(act); };
+  var bx=el('<button class="btn sm sec">Descartar</button>'); bx.onclick=function(){ if(confirm("Descartar o simulado em andamento?")){ state.simulados=state.simulados.filter(function(s){return s.id!==act.id;}); save(); go("simulado"); } };
+  cont.appendChild(bc); cont.appendChild(bx); c.appendChild(cont);
+ } else {
+  var b=el('<button class="btn" style="margin-top:16px">'+I.exam+' Iniciar prova (60 questões)</button>');
+  b.onclick=function(){ startSimulado(); };
+  c.appendChild(b);
+ }
+ wrap.appendChild(c);
+
+ // past simulados quick list
+ var fin=state.simulados.filter(function(s){return s.finished;});
+ if(fin.length){ var pc=el('<div class="card pad"><div class="eyebrow">Simulados anteriores</div><div class="list" id="pl"></div></div>');
+  fin.slice().reverse().forEach(function(s){ var li=el('<div class="li"><div><div class="t">'+esc(s.title)+'</div><div class="s">'+fmtDate(s.ts)+' · '+fmtDur(s.time)+'</div></div><div class="row" style="align-items:center"><span class="badge ok mono">'+s.correct+'/'+s.total+'</span></div></div>');
+   li.style.cursor="pointer"; li.onclick=function(){ openResult(s.id); }; pc.querySelector("#pl").appendChild(li); });
+  wrap.appendChild(pc);
+ }
+ app.appendChild(wrap);
+}
+
+function startSimulado(){
+ var sim={ id:"s"+Date.now(), title:"Transpetro 2023 — Dutos e Terminais", ts:Date.now(),
+   started:Date.now(), finished:false, order:QUESTIONS.map(function(q){return q.n;}),
+   answers:{}, cur:0, total:60 };
+ state.simulados.push(sim); save(); runSimulado(sim);
+}
+
+var timerHandle=null;
+function runSimulado(sim){
+ view=el('<div class="stack"></div>');
+ var q=qById(sim.order[sim.cur]);
+ var head=el('<div class="qmeta"></div>');
+ head.appendChild(el('<div><div class="qnum">QUESTÃO '+String(sim.cur+1).padStart(2,"0")+' / 60</div><div class="eyebrow" style="margin-top:3px">'+DISC[q.disc]+'</div></div>'));
+ var tm=el('<div class="timer"><span class="dot"></span><span id="tmv">00:00:00</span></div>'); head.appendChild(tm);
+ view.appendChild(head);
+
+ var card=el('<div class="card pad"></div>');
+ card.appendChild(el('<div class="enun">'+esc(q.st)+'</div>'));
+ var opts=el('<div class="opts"></div>');
+ q.o.forEach(function(txt,i){ var L=LETTERS[i]; var sel=sim.answers[q.n]===L;
+  var b=el('<button class="opt '+(sel?"sel":"")+'"><span class="lt">'+L+'</span><span class="tx">'+esc(txt)+'</span></button>');
+  b.onclick=function(){ sim.answers[q.n]=L; save(); runSimulado(sim); };
+  opts.appendChild(b);
+ });
+ card.appendChild(opts);
+ view.appendChild(card);
+
+ // nav
+ var nav=el('<div class="row" style="justify-content:space-between"></div>');
+ var prev=el('<button class="btn sm sec">← Anterior</button>'); prev.disabled=sim.cur===0; prev.onclick=function(){ sim.cur--; save(); runSimulado(sim); };
+ var next;
+ if(sim.cur<59){ next=el('<button class="btn sm">Próxima →</button>'); next.onclick=function(){ sim.cur++; save(); runSimulado(sim); }; }
+ else { next=el('<button class="btn sm">Revisar e finalizar</button>'); next.onclick=function(){ finishScreen(sim); }; }
+ nav.appendChild(prev); nav.appendChild(next); view.appendChild(nav);
+
+ // grid
+ var answered=Object.keys(sim.answers).length;
+ var gcard=el('<div class="card pad"><div class="row" style="justify-content:space-between;margin-bottom:12px"><span class="eyebrow">Navegação</span><span class="mono muted" style="font-size:12px">'+answered+'/60 respondidas</span></div></div>');
+ var grid=el('<div class="qgrid"></div>');
+ sim.order.forEach(function(n,i){ var cls="qg"+(sim.answers[n]?" answered":"")+(i===sim.cur?" cur":"");
+  var g=el('<button class="'+cls+'">'+n+'</button>'); g.onclick=function(){ sim.cur=i; save(); runSimulado(sim); }; grid.appendChild(g); });
+ gcard.appendChild(grid); view.appendChild(gcard);
+
+ var fin=el('<button class="btn ghost" style="margin-top:4px">Finalizar simulado</button>'); fin.onclick=function(){ finishScreen(sim); }; view.appendChild(fin);
+
+ render();
+ startTimer(sim);
+}
+function startTimer(sim){
+ if(timerHandle) clearInterval(timerHandle);
+ function tick(){ var v=document.getElementById("tmv"); if(!v){ clearInterval(timerHandle); return; } v.textContent=fmtDur((Date.now()-sim.started)/1000); }
+ tick(); timerHandle=setInterval(tick,1000);
+}
+function finishScreen(sim){
+ var answered=Object.keys(sim.answers).length, blank=60-answered;
+ if(blank>0 && !confirm("Você deixou "+blank+" quest"+(blank>1?"ões":"ão")+" em branco. Finalizar mesmo assim?")) return;
+ if(timerHandle) clearInterval(timerHandle);
+ // grade
+ var correct=0, perDisc={};
+ sim.order.forEach(function(n){ var q=qById(n); var sel=sim.answers[n]||null; var ok=sel===q.c;
+  if(ok)correct++; if(!perDisc[q.disc])perDisc[q.disc]={ans:0,cor:0,tot:0}; perDisc[q.disc].tot++; if(sel)perDisc[q.disc].ans++; if(ok)perDisc[q.disc].cor++;
+  record(n, sel, ok, "simulado", sim.id);
+ });
+ sim.finished=true; sim.finishedAt=Date.now(); sim.time=Math.floor((sim.finishedAt-sim.started)/1000);
+ sim.correct=correct; sim.total=60; sim.pct=pct(correct,60); sim.perDisc=perDisc;
+ save(); openResult(sim.id);
+}
+
+function openResult(id){
+ var sim=null; state.simulados.forEach(function(s){if(s.id===id)sim=s;}); if(!sim){go("historico");return;}
+ route="simulado"; renderNav();
+ view=el('<div class="stack"></div>');
+ view.appendChild(el('<div><div class="eyebrow">Resultado</div><h1 class="h-page" style="margin-top:6px">'+esc(sim.title)+'</h1><p class="muted" style="margin-top:4px">'+fmtDate(sim.ts)+'</p></div>'));
+
+ var top=el('<div class="card pad center"></div>');
+ top.appendChild(el('<div class="ring" style="--p:'+sim.pct+'"><div class="in"><div class="big mono">'+sim.correct+'/'+sim.total+'</div><div class="sm">'+fmtPct(sim.pct)+'</div></div></div>'));
+ top.appendChild(el('<div class="mono muted" style="margin-top:12px">'+I.clock+' Tempo total '+fmtDur(sim.time)+'</div>'));
+ view.appendChild(top);
+
+ var dc=el('<div class="card pad"><div class="eyebrow">Desempenho por disciplina</div></div>');
+ DISC_ORDER.forEach(function(k){ var d=sim.perDisc[k]; if(!d)return; var p=pct(d.cor,d.tot); var tone=p>=70?"ok":(p<50?"err":"");
+  dc.appendChild(el('<div class="discrow"><span class="nm">'+DISC[k]+'</span><span class="pc">'+d.cor+' / '+d.tot+' · '+fmtPct(p)+'</span><div class="bar '+tone+'"><i style="width:'+p+'%"></i></div></div>')); });
+ view.appendChild(dc);
+
+ // wrong list
+ var wrongs=sim.order.filter(function(n){ return (sim.answers[n]||null)!==qById(n).c; });
+ var wc=el('<div class="card pad"><div class="row" style="justify-content:space-between;margin-bottom:6px"><span class="eyebrow">Para revisar</span><span class="badge err mono">'+wrongs.length+' erradas</span></div></div>');
+ var grid=el('<div class="qgrid" style="margin-top:10px"></div>');
+ sim.order.forEach(function(n){ var ok=(sim.answers[n]||null)===qById(n).c; var g=el('<button class="qg '+(ok?"gok":"gerr")+'">'+n+'</button>'); g.onclick=function(){ reviewSim(sim, sim.order.indexOf(n)); }; grid.appendChild(g); });
+ wc.appendChild(grid);
+ var rb=el('<button class="btn sm sec" style="margin-top:14px">Revisar questão a questão</button>'); rb.onclick=function(){ reviewSim(sim,0); }; wc.appendChild(rb);
+ view.appendChild(wc);
+
+ var done=el('<button class="btn">Voltar ao início</button>'); done.onclick=function(){ go("inicio"); }; view.appendChild(done);
+ render();
+}
+
+function reviewSim(sim, idx){
+ route="simulado"; renderNav();
+ var n=sim.order[idx], q=qById(n), sel=sim.answers[n]||null, ok=sel===q.c;
+ view=el('<div class="stack"></div>');
+ var head=el('<div class="qmeta"></div>');
+ head.appendChild(el('<div><div class="qnum">REVISÃO · QUESTÃO '+String(idx+1).padStart(2,"0")+' / 60</div><div class="eyebrow" style="margin-top:3px">'+DISC[q.disc]+'</div></div>'));
+ head.appendChild(el(ok?'<span class="badge ok">✓ Acertou</span>':(sel?'<span class="badge err">✗ Errou</span>':'<span class="badge amber">Em branco</span>')));
+ view.appendChild(head);
+ var card=el('<div class="card pad"></div>');
+ card.appendChild(el('<div class="enun">'+esc(q.st)+'</div>'));
+ var opts=el('<div class="opts"></div>');
+ q.o.forEach(function(txt,i){ var L=LETTERS[i]; var cls="opt dim"; if(L===q.c)cls="opt correct"; else if(L===sel)cls="opt wrong";
+  opts.appendChild(el('<button class="'+cls+'" disabled><span class="lt">'+L+'</span><span class="tx">'+esc(txt)+'</span></button>')); });
+ card.appendChild(opts);
+ card.appendChild(el('<div class="note" style="margin-top:14px">Você marcou <b>'+(sel||"—")+'</b> · Gabarito oficial <b>'+q.c+'</b>. <span class="faint">Sem comentário no material importado.</span></div>'));
+ view.appendChild(card);
+ var nav=el('<div class="row" style="justify-content:space-between"></div>');
+ var prev=el('<button class="btn sm sec">← Anterior</button>'); prev.disabled=idx===0; prev.onclick=function(){reviewSim(sim,idx-1);};
+ var next=el('<button class="btn sm">'+(idx<59?"Próxima →":"Concluir revisão")+'</button>'); next.onclick=function(){ idx<59?reviewSim(sim,idx+1):openResult(sim.id); };
+ nav.appendChild(prev); nav.appendChild(next); view.appendChild(nav);
+ render(); window.scrollTo(0,0);
+}
+
+/* ================= ESTUDAR ================= */
+var studyCfg={disc:"ALL", size:10, mode:"todas"};
+function vEstudar(app){
+ var wrap=el('<div class="stack"></div>');
+ wrap.appendChild(el('<div><div class="eyebrow">Modo estudo</div><h1 class="h-page" style="margin-top:6px">Estudar questões</h1><p class="muted" style="margin-top:4px">Correção na hora, uma questão de cada vez.</p></div>'));
+
+ var c=el('<div class="card pad stack"></div>');
+ // disc
+ c.appendChild(el('<div class="eyebrow">Disciplina</div>'));
+ var s1=el('<div class="seg"></div>');
+ [["ALL","Todas"]].concat(DISC_ORDER.map(function(k){return [k,DISC[k]];})).forEach(function(o){ var ch=el('<button class="chip '+(studyCfg.disc===o[0]?"on":"")+'">'+o[1]+'</button>'); ch.onclick=function(){studyCfg.disc=o[0];vEstudarRefresh(app);}; s1.appendChild(ch); });
+ c.appendChild(s1);
+ // mode
+ c.appendChild(el('<div class="eyebrow">Modo</div>'));
+ var s2=el('<div class="seg"></div>');
+ [["novas","Questões novas"],["erradas","Só que errei"],["respondidas","Já respondidas"],["todas","Todas"]].forEach(function(o){ var ch=el('<button class="chip '+(studyCfg.mode===o[0]?"on":"")+'">'+o[1]+'</button>'); ch.onclick=function(){studyCfg.mode=o[0];vEstudarRefresh(app);}; s2.appendChild(ch); });
+ c.appendChild(s2);
+ // size
+ c.appendChild(el('<div class="eyebrow">Quantidade</div>'));
+ var s3=el('<div class="seg"></div>');
+ [5,10,20,30].forEach(function(n){ var ch=el('<button class="chip '+(studyCfg.size===n?"on":"")+'">'+n+'</button>'); ch.onclick=function(){studyCfg.size=n;vEstudarRefresh(app);}; s3.appendChild(ch); });
+ c.appendChild(s3);
+
+ var pool=buildPool();
+ c.appendChild(el('<div class="note">'+pool.length+' quest'+(pool.length===1?"ão":"ões")+' disponível'+(pool.length===1?"":"is")+' com esse filtro.</div>'));
+ var start=el('<button class="btn">'+I.study+' Começar ('+Math.min(pool.length,studyCfg.size)+' questões)</button>');
+ start.disabled=pool.length===0; start.onclick=function(){ runStudy(pool.slice(0,studyCfg.size)); };
+ c.appendChild(start);
+ wrap.appendChild(c);
+
+ // errors shortcut
+ var ws=wrongQs();
+ if(ws.length){ var ec=el('<div class="card pad"><div class="row" style="justify-content:space-between;margin-bottom:4px"><span class="eyebrow">Minhas questões erradas</span><span class="badge err mono">'+ws.length+'</span></div><div class="list" id="ew"></div></div>');
+  ws.slice(0,6).forEach(function(w){ var q=qById(w.q); var li=el('<div class="li"><div><div class="t">Questão '+w.q+'</div><div class="s">'+DISC[q.disc]+' · último erro '+fmtDate(w.ts)+'</div></div><span class="badge amber mono">reestudar</span></div>'); li.style.cursor="pointer"; li.onclick=function(){ runStudy([w.q]); }; ec.querySelector("#ew").appendChild(li); });
+  wrap.appendChild(ec);
+ }
+ app.appendChild(wrap);
+}
+function vEstudarRefresh(app){ app.innerHTML=""; vEstudar(app); }
+function buildPool(){
+ var ans=answeredSet(), wrong=wrongSet();
+ var pool=QUESTIONS.filter(function(q){ return studyCfg.disc==="ALL"||q.disc===studyCfg.disc; }).map(function(q){return q.n;});
+ if(studyCfg.mode==="novas") pool=pool.filter(function(n){return !ans.has(n);});
+ else if(studyCfg.mode==="erradas") pool=pool.filter(function(n){return wrong.has(n);});
+ else if(studyCfg.mode==="respondidas") pool=pool.filter(function(n){return ans.has(n);});
+ // shuffle lightly
+ for(var i=pool.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=pool[i];pool[i]=pool[j];pool[j]=t; }
+ return pool;
+}
+function runStudy(list){
+ var st={list:list, i:0, answered:false, correctCount:0};
+ studyStep(st);
+}
+function studyStep(st){
+ var n=st.list[st.i], q=qById(n);
+ view=el('<div class="stack"></div>');
+ var head=el('<div class="qmeta"></div>');
+ head.appendChild(el('<div><div class="qnum">ESTUDO · '+String(st.i+1).padStart(2,"0")+' / '+st.list.length+'</div><div class="eyebrow" style="margin-top:3px">'+DISC[q.disc]+' · questão '+n+'</div></div>'));
+ view.appendChild(head);
+ var card=el('<div class="card pad"></div>');
+ card.appendChild(el('<div class="enun">'+esc(q.st)+'</div>'));
+ var opts=el('<div class="opts"></div>');
+ st.sel=st.sel||null;
+ q.o.forEach(function(txt,i){ var L=LETTERS[i];
+  var cls="opt";
+  if(st.answered){ if(L===q.c)cls="opt correct"; else if(L===st.sel)cls="opt wrong"; else cls="opt dim"; }
+  var b=el('<button class="'+cls+'"><span class="lt">'+L+'</span><span class="tx">'+esc(txt)+'</span></button>');
+  if(!st.answered){ b.onclick=function(){ st.sel=L; st.answered=true; var ok=L===q.c; if(ok)st.correctCount++; record(n,L,ok,"estudo",null); studyStep(st); }; }
+  else b.disabled=true;
+  opts.appendChild(b);
+ });
+ card.appendChild(opts);
+ if(st.answered){ var ok=st.sel===q.c;
+  card.appendChild(el('<div class="note" style="margin-top:14px;border-color:'+(ok?"var(--ok)":"var(--err)")+'">'+(ok?'<b style="color:var(--ok)">✓ Correto.</b> ':'<b style="color:var(--err)">✗ Incorreto.</b> Você marcou '+st.sel+'. ')+'Gabarito oficial <b>'+q.c+'</b>.</div>'));
+ }
+ view.appendChild(card);
+ var nav=el('<div class="row" style="justify-content:flex-end"></div>');
+ if(st.answered){
+  if(st.i<st.list.length-1){ var nx=el('<button class="btn sm">Próxima questão →</button>'); nx.onclick=function(){ st.i++; st.answered=false; st.sel=null; studyStep(st); }; nav.appendChild(nx); }
+  else { var fin=el('<button class="btn sm">Concluir ('+st.correctCount+'/'+st.list.length+')</button>'); fin.onclick=function(){ recordStudySession(st); alert("Sessão concluída: "+st.correctCount+" de "+st.list.length+" corretas."); go("desempenho"); }; nav.appendChild(fin); }
+ } else nav.appendChild(el('<span class="faint" style="align-self:center;font-size:13px">Escolha uma alternativa</span>'));
+ view.appendChild(nav);
+ render(); window.scrollTo(0,0);
+}
+function recordStudySession(st){
+ var discs={}; st.list.forEach(function(n){discs[qById(n).disc]=1;});
+ var label = Object.keys(discs).length===1 ? DISC[Object.keys(discs)[0]] : "Mistas";
+ state.simulados.push({id:"e"+Date.now(),type:"estudo",title:"Estudo — "+label,ts:Date.now(),finished:true,study:true,correct:st.correctCount,total:st.list.length,pct:pct(st.correctCount,st.list.length),time:null});
+ save();
+}
+
+/* ================= DESEMPENHO ================= */
+function vDesempenho(app){
+ var o=overall(), bd=byDisc();
+ var wrap=el('<div class="stack"></div>');
+ wrap.appendChild(el('<div><div class="eyebrow">Evolução</div><h1 class="h-page" style="margin-top:6px">Meu desempenho</h1></div>'));
+ if(o.answered===0){ wrap.appendChild(el('<div class="card empty">'+I.empty+'<p>Sem tentativas ainda.<br>Faça a prova ou estude para começar a medir.</p></div>')); app.appendChild(wrap); return; }
+
+ var stats=el('<div class="grid stats"></div>');
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono tile-accent">'+o.answered+'</div><div class="k">Tentativas</div></div>'));
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono tile-ok">'+fmtPct(o.pct)+'</div><div class="k">Acerto geral</div></div>'));
+ stats.appendChild(el('<div class="card pad stat"><div class="v mono">'+o.uniq+'<span class="faint" style="font-size:15px">/60</span></div><div class="k">Questões vistas</div></div>'));
+ wrap.appendChild(stats);
+
+ var dc=el('<div class="card pad"><div class="eyebrow">Por disciplina</div></div>');
+ DISC_ORDER.forEach(function(k){ var d=bd[k]||{ans:0,cor:0}; var p=pct(d.cor,d.ans); var tone=p>=70?"ok":(p<50&&d.ans?"err":"");
+  dc.appendChild(el('<div class="discrow"><span class="nm">'+DISC[k]+'</span><span class="pc">'+(d.ans?d.cor+"/"+d.ans+" · "+fmtPct(p):"—")+'</span><div class="bar '+tone+'"><i style="width:'+(d.ans?p:0)+'%"></i></div></div>')); });
+ wrap.appendChild(dc);
+
+ // simple evolution: last up to 8 finished simulados
+ var sims=state.simulados.filter(function(s){return s.finished;}).slice(-8);
+ if(sims.length>=1){ var ec=el('<div class="card pad"><div class="eyebrow">Sessões recentes</div><div class="list" id="ev"></div></div>');
+  sims.slice().reverse().forEach(function(s){ ec.querySelector("#ev").appendChild(el('<div class="li"><div><div class="t">'+esc(s.title)+'</div><div class="s">'+fmtDate(s.ts)+'</div></div><span class="badge '+(s.pct>=70?"ok":(s.pct<50?"err":"real"))+' mono">'+s.correct+'/'+s.total+' · '+fmtPct(s.pct)+'</span></div>')); });
+  wrap.appendChild(ec);
+ }
+ app.appendChild(wrap);
+}
+
+/* ================= HISTÓRICO ================= */
+function vHistorico(app){
+ var wrap=el('<div class="stack"></div>');
+ wrap.appendChild(el('<div><div class="eyebrow">Registro</div><h1 class="h-page" style="margin-top:6px">Histórico</h1></div>'));
+ var items=state.simulados.filter(function(s){return s.finished;}).slice().reverse();
+ if(!items.length){ wrap.appendChild(el('<div class="card empty">'+I.empty+'<p>Nada por aqui ainda.</p></div>')); app.appendChild(wrap); return; }
+ var c=el('<div class="card pad"><div class="list" id="hl"></div></div>');
+ items.forEach(function(s){ var li=el('<div class="li"><div><div class="t">'+esc(s.title)+'</div><div class="s">'+fmtDate(s.ts)+(s.time!=null?" · "+fmtDur(s.time):"")+'</div></div><div class="row" style="align-items:center;gap:8px"><span class="badge '+(s.pct>=70?"ok":(s.pct<50?"err":"real"))+' mono">'+s.correct+'/'+s.total+'</span></div></div>');
+  if(!s.study){ li.style.cursor="pointer"; li.onclick=function(){ openResult(s.id); }; }
+  c.querySelector("#hl").appendChild(li);
+ });
+ wrap.appendChild(c);
+ var clr=el('<button class="btn sec sm" style="margin-top:6px">Apagar todo o histórico</button>');
+ clr.onclick=function(){ if(confirm("Isso apaga todas as tentativas e simulados salvos neste navegador. Continuar?")){ state={attempts:[],simulados:[],theme:state.theme}; save(); go("inicio"); } };
+ wrap.appendChild(clr);
+ app.appendChild(wrap);
+}
+
+/* ================= THEME ================= */
+function applyTheme(){
+ var btn=document.getElementById("themeBtn");
+ if(state.theme==="dark"){ document.documentElement.setAttribute("data-theme","dark"); btn.innerHTML=I.sun; }
+ else if(state.theme==="light"){ document.documentElement.setAttribute("data-theme","light"); btn.innerHTML=I.moon; }
+ else { document.documentElement.removeAttribute("data-theme"); btn.innerHTML=(window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches)?I.sun:I.moon; }
+}
+document.getElementById("themeBtn").onclick=function(){ state.theme=(state.theme==="dark")?"light":"dark"; save(); applyTheme(); };
+
+applyTheme();
+render();
+})();
+</script>
