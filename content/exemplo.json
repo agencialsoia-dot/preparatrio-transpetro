@@ -1,0 +1,72 @@
+{
+  "exam": {
+    "slug": "amostra-demonstracao",
+    "name": "Amostra de demonstração",
+    "organization": null,
+    "bank": null,
+    "year": null,
+    "category": "Demonstração",
+    "description": "Questões genéricas para testar o fluxo. NÃO é conteúdo de prova.",
+    "total_questions": 3,
+    "is_real_exam": false
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "discipline": "Língua Portuguesa",
+      "topic": null,
+      "statement": "AMOSTRA — Assinale a alternativa em que a palavra está grafada corretamente.",
+      "options": {
+        "A": "excessão",
+        "B": "exceção",
+        "C": "esceção",
+        "D": "excesão",
+        "E": "exselção"
+      },
+      "correct_answer": "B",
+      "explanation": "A grafia correta é \"exceção\".",
+      "explanation_source": null,
+      "source": "Amostra",
+      "year": null,
+      "bank": null
+    },
+    {
+      "question_number": 2,
+      "discipline": "Matemática",
+      "topic": null,
+      "statement": "AMOSTRA — Qual é 15% de 480?",
+      "options": {
+        "A": "62",
+        "B": "68",
+        "C": "70",
+        "D": "72",
+        "E": "75"
+      },
+      "correct_answer": "D",
+      "explanation": "480 × 0,15 = 72.",
+      "explanation_source": null,
+      "source": "Amostra",
+      "year": null,
+      "bank": null
+    },
+    {
+      "question_number": 3,
+      "discipline": "Conhecimentos Específicos",
+      "topic": null,
+      "statement": "AMOSTRA — Em um duto, a unidade do SI usada para pressão é:",
+      "options": {
+        "A": "newton (N)",
+        "B": "pascal (Pa)",
+        "C": "joule (J)",
+        "D": "watt (W)",
+        "E": "kelvin (K)"
+      },
+      "correct_answer": "B",
+      "explanation": "Pressão é força por área: 1 Pa = 1 N/m².",
+      "explanation_source": null,
+      "source": "Amostra",
+      "year": null,
+      "bank": null
+    }
+  ]
+}
