@@ -11,20 +11,36 @@ evolução**. O fluxo central é *fazer prova → errar → entender → refazer
 Next.js 15 (App Router) · TypeScript · Tailwind CSS · Supabase (Auth + Postgres + RLS).
 Pronto para deploy na Vercel.
 
+## Projeto Supabase (já provisionado)
+
+O backend já está criado e populado no projeto **`preparatorio-transpetro`**
+(`hyzuhhpwwfawqzcpxgic`, região sa-east-1): schema + RLS aplicados, prova real de 2023 (60
+questões, gabarito definitivo) e a amostra já carregadas.
+
+- URL: `https://hyzuhhpwwfawqzcpxgic.supabase.co`
+- Anon key (pública, pode ir para o browser/Vercel): veja Supabase → Settings → API.
+
+### Um passo manual (autenticação)
+
+Para poder entrar sem caixa de e-mail, no painel do Supabase vá em **Authentication →
+Sign In / Providers → Email** e **desligue "Confirm email"**. Assim o cadastro em
+`/cadastro` já entra direto. (Se preferir manter a confirmação ligada, o link de e-mail
+usa `/auth/callback`, já implementado.)
+
 ## Como rodar
 
-1. **Banco.** Crie um projeto no [Supabase](https://supabase.com/dashboard) e aplique, em
-   ordem, os arquivos de `supabase/migrations/` (SQL editor ou `supabase db push`). Isso já
-   deixa a prova real de 2023 carregada.
-2. **Variáveis.** `cp .env.example .env.local` e preencha (Settings → API do Supabase). A
-   `SUPABASE_SERVICE_ROLE_KEY` é usada **apenas** pelo importador local — nunca configure na
+1. **Variáveis.** `cp .env.example .env.local` e preencha a URL e a anon key acima. A
+   `SUPABASE_SERVICE_ROLE_KEY` só é necessária para reimportar provas — nunca configure na
    Vercel.
-3. **Dependências e dev.**
+2. **Dependências e dev.**
    ```bash
    npm install
    npm run dev
    ```
-4. Crie sua conta em `/cadastro` e comece pela prova de 2023 em **Simulados**.
+3. Crie sua conta em `/cadastro` e comece pela prova de 2023 em **Simulados**.
+
+> Para recriar o banco do zero (outro projeto), aplique em ordem os arquivos de
+> `supabase/migrations/` (SQL editor ou `supabase db push`).
 
 ## Scripts
 
