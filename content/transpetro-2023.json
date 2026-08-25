@@ -224,7 +224,7 @@
       "question_number": 12,
       "discipline": "Matemática",
       "topic": null,
-      "statement": "Suponha que, em 1994, um artigo custasse R$ 13,91 e, exatos 28 anos depois (336 meses), ele passasse a custar R$ 100,00. Suponha, também, que, para esse período, a taxa mensal de aumento no preço desse artigo tenha sido igual a k%, ou seja, a cada mês o preço do artigo sofreu um aumento de k% em relação ao preço do mês anterior. O valor de k pode ser dado por\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]",
+      "statement": "Suponha que, em 1994, um artigo custasse R$ 13,91 e, exatos 28 anos depois (336 meses), ele passasse a custar R$ 100,00. Suponha, também, que, para esse período, a taxa mensal de aumento no preço desse artigo tenha sido igual a k%, ou seja, a cada mês o preço do artigo sofreu um aumento de k% em relação ao preço do mês anterior. O valor de k pode ser dado por",
       "options": {
         "A": "k = [ (100/13,91)^(1/336) − 1 ] × 100",
         "B": "k = [ (100/13,91)^336 − 1 ] × 100",
@@ -237,13 +237,14 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q12.png"
     },
     {
       "question_number": 13,
       "discipline": "Matemática",
       "topic": null,
-      "statement": "Uma empresa, em reconhecimento ao desempenho de 10 de seus funcionários, decide dar-lhes um bônus. Para tanto, a empresa distribuiu um total de R$ 25.000,00: 6 funcionários receberam R$ 2.000, 2 receberam R$ 2.500 e 2 receberam R$ 4.000. Nessas condições, o desvio padrão dos bônus pagos é dado por\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]",
+      "statement": "Uma empresa, em reconhecimento ao desempenho de 10 de seus funcionários, decide dar-lhes um bônus. Para tanto, a empresa distribuiu um total de R$ 25.000,00: 6 funcionários receberam R$ 2.000, 2 receberam R$ 2.500 e 2 receberam R$ 4.000. Nessas condições, o desvio padrão dos bônus pagos é dado por",
       "options": {
         "A": "√[ (36·2000² + 4·2500² + 4·4000²) / 10 ]",
         "B": "√[ (36·500² + 4·2500² + 4·1500²) / 10 ]",
@@ -256,7 +257,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q13.png"
     },
     {
       "question_number": 14,
@@ -471,7 +473,7 @@
       "question_number": 25,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "O PTFE é um fluoropolímero sintético com alta massa molecular, cujo precursor monomérico é o tetrafluoretileno (TFE). O PTFE é conhecido por ser antiaderente, ter alta estabilidade térmica e baixa reatividade química. Das estruturas a seguir, a que representa a unidade de repetição do PTFE é a\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]",
+      "statement": "O PTFE é um fluoropolímero sintético com alta massa molecular, cujo precursor monomérico é o tetrafluoretileno (TFE). O PTFE é conhecido por ser antiaderente, ter alta estabilidade térmica e baixa reatividade química. Das estruturas a seguir, a que representa a unidade de repetição do PTFE é a",
       "options": {
         "A": "–(CH₂–CH₂)ₙ– (polietileno)",
         "B": "–(CHF–CHF)ₙ–",
@@ -484,7 +486,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q25.png"
     },
     {
       "question_number": 26,
@@ -509,7 +512,7 @@
       "question_number": 27,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "Considere um sistema de equações que envolvem reações de hidrocarbonetos\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nAs substâncias X, Y e Z são, respectivamente",
+      "statement": "Considere um sistema de equações que envolvem reações de hidrocarbonetos As substâncias X, Y e Z são, respectivamente",
       "options": {
         "A": "CH₃Cl, CH₄, HONO₂",
         "B": "CH₃Cl, HONO₂, CH₄",
@@ -522,7 +525,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q27.png"
     },
     {
       "question_number": 28,
@@ -547,7 +551,7 @@
       "question_number": 29,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "Uma viga de seção transversal retangular de dimensões b × h é submetida a um momento fletor M, conforme indicado na Figura.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nA tensão normal compressiva máxima na seção mostrada atuará no(s) ponto(s)",
+      "statement": "Uma viga de seção transversal retangular de dimensões b × h é submetida a um momento fletor M, conforme indicado na Figura. A tensão normal compressiva máxima na seção mostrada atuará no(s) ponto(s)",
       "options": {
         "A": "A, apenas",
         "B": "B, apenas",
@@ -560,13 +564,14 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q29.png"
     },
     {
       "question_number": 30,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "O descarregamento de uma caixa de massa m é realizado com o deslizamento da caixa por um plano inclinado de α graus (10° < α < 30°), conforme mostrado na Figura, com atrito nulo entre a caixa e o plano.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nSendo g a aceleração da gravidade, a aceleração de deslizamento da caixa sobre o plano",
+      "statement": "O descarregamento de uma caixa de massa m é realizado com o deslizamento da caixa por um plano inclinado de α graus (10° < α < 30°), conforme mostrado na Figura, com atrito nulo entre a caixa e o plano. Sendo g a aceleração da gravidade, a aceleração de deslizamento da caixa sobre o plano",
       "options": {
         "A": "é nula.",
         "B": "é igual a g.",
@@ -579,13 +584,14 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q30.png"
     },
     {
       "question_number": 31,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "Na Figura, representa-se uma força concentrada F, aplicada à extremidade da viga biapoiada ABCD, com o objetivo de elevar uma carga posicionada conforme indicado.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nO menor valor da força F, expressa em newtons, para elevar uma carga P de 2.100 N, que faz com que a reação no apoio A seja nula, é",
+      "statement": "Na Figura, representa-se uma força concentrada F, aplicada à extremidade da viga biapoiada ABCD, com o objetivo de elevar uma carga posicionada conforme indicado. O menor valor da força F, expressa em newtons, para elevar uma carga P de 2.100 N, que faz com que a reação no apoio A seja nula, é",
       "options": {
         "A": "525",
         "B": "700",
@@ -598,13 +604,14 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q31.png"
     },
     {
       "question_number": 32,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "A estrutura representada na Figura é constituída de 3 barras unidas pelo pino B. Considere que as barras 1 e 2 tenham área de seção transversal de 1,0 cm², e a barra 3, área de 1,2 cm².\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nAs tensões normais que atuam nas barras 1, 2 e 3 para suportar a carga P de 2.400 N são, em MPa, respectivamente, de",
+      "statement": "A estrutura representada na Figura é constituída de 3 barras unidas pelo pino B. Considere que as barras 1 e 2 tenham área de seção transversal de 1,0 cm², e a barra 3, área de 1,2 cm². As tensões normais que atuam nas barras 1, 2 e 3 para suportar a carga P de 2.400 N são, em MPa, respectivamente, de",
       "options": {
         "A": "20 (compressão), 24 (compressão) e 24 (tração)",
         "B": "20 (tração), 20 (compressão) e 24 (tração)",
@@ -617,7 +624,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q32.png"
     },
     {
       "question_number": 33,
@@ -661,7 +669,7 @@
       "question_number": 35,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "Considere uma força magnética atuando em um condutor retilíneo de comprimento l, percorrido por uma corrente i. Esse condutor está imerso em uma região onde existe um campo magnético uniforme (B), que forma um ângulo θ com o condutor. Essa força magnética é representada pela seguinte equação:\n\n[As alternativas desta questão são expressões/estruturas exibidas como imagem no caderno oficial; consulte o PDF original.]",
+      "statement": "Considere uma força magnética atuando em um condutor retilíneo de comprimento l, percorrido por uma corrente i. Esse condutor está imerso em uma região onde existe um campo magnético uniforme (B), que forma um ângulo θ com o condutor. Essa força magnética é representada pela seguinte equação:",
       "options": {
         "A": "F = B i l sen θ",
         "B": "F = B i sen θ",
@@ -674,7 +682,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q35.png"
     },
     {
       "question_number": 36,
@@ -737,7 +746,7 @@
       "question_number": 39,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "O dispositivo representado na Figura é um tubo de Venturi, que compreende duas seções, a maior com área S1, e a menor, com área S2, ambas conhecidas. Nas direções verticais correspondentes aos pontos P1 e P2, são conectados dois tubos verticais, ambos com as extremidades superiores abertas e as inferiores em comunicação com o interior desse tubo, por onde um fluido conhecido é canalizado. Considere que v1 é a velocidade na região S1; v2, a velocidade na região S2 (garganta); e Δh, a medida do desnível do líquido existente nos tubos verticais.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nEsse dispositivo é usado para medir",
+      "statement": "O dispositivo representado na Figura é um tubo de Venturi, que compreende duas seções, a maior com área S1, e a menor, com área S2, ambas conhecidas. Nas direções verticais correspondentes aos pontos P1 e P2, são conectados dois tubos verticais, ambos com as extremidades superiores abertas e as inferiores em comunicação com o interior desse tubo, por onde um fluido conhecido é canalizado. Considere que v1 é a velocidade na região S1; v2, a velocidade na região S2 (garganta); e Δh, a medida do desnível do líquido existente nos tubos verticais. Esse dispositivo é usado para medir",
       "options": {
         "A": "calor",
         "B": "temperatura absoluta",
@@ -750,13 +759,14 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q39.png"
     },
     {
       "question_number": 40,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "O recipiente cilíndrico de diâmetro igual a 12 m, representado na Figura, é aberto no topo e contém água, cuja densidade é igual a 1.000 kg/m³, até a linha indicada. O nível da água no interior do reservatório está a uma altura h1 = 10,8 m, e a tubulação de saída, um duto circular com 20 cm² de área de seção reta, está a uma altura h2 = 9 m.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nConsiderando-se a situação apresentada, a vazão de saída de água, em kg/s, é igual a (Dado: g = 10 m/s²)",
+      "statement": "O recipiente cilíndrico de diâmetro igual a 12 m, representado na Figura, é aberto no topo e contém água, cuja densidade é igual a 1.000 kg/m³, até a linha indicada. O nível da água no interior do reservatório está a uma altura h1 = 10,8 m, e a tubulação de saída, um duto circular com 20 cm² de área de seção reta, está a uma altura h2 = 9 m. Considerando-se a situação apresentada, a vazão de saída de água, em kg/s, é igual a (Dado: g = 10 m/s²)",
       "options": {
         "A": "0,012",
         "B": "0,12",
@@ -769,7 +779,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q40.png"
     },
     {
       "question_number": 41,
@@ -1060,7 +1071,7 @@
       "question_number": 56,
       "discipline": "Conhecimentos Específicos",
       "topic": null,
-      "statement": "Na Figura, são mostrados 3 vasos, A, B e C, abertos para a atmosfera. Esses vasos têm formas diferentes, mas foram preenchidos com água até o mesmo nível.\n\n[O caderno oficial apresenta uma figura/estrutura para esta questão; consulte o PDF original para o diagrama completo.]\n\nA relação entre as pressões no fundo de cada um deles é descrita por",
+      "statement": "Na Figura, são mostrados 3 vasos, A, B e C, abertos para a atmosfera. Esses vasos têm formas diferentes, mas foram preenchidos com água até o mesmo nível. A relação entre as pressões no fundo de cada um deles é descrita por",
       "options": {
         "A": "PB > PA > PC",
         "B": "PB = PA > PC",
@@ -1073,7 +1084,8 @@
       "explanation_source": null,
       "source": "Cesgranrio — Transpetro 2023 — Prova 2 (Dutos e Terminais) — Gabarito definitivo",
       "year": 2023,
-      "bank": "Cesgranrio"
+      "bank": "Cesgranrio",
+      "image": "/questions/2023/q56.png"
     },
     {
       "question_number": 57,

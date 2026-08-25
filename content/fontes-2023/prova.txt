@@ -1,0 +1,1812 @@
+LEIA  ATENTAMENTE  AS  INSTRUÇÕES  ABAIXO.
+01 - O candidato recebeu do fiscal o seguinte material:
+a) este CADERNO DE QUESTÕES, com o enunciado das 60 (sessenta) questões objetivas, sem repetição ou falha, com 
+a seguinte distribuição:
+Conhecimentos Básicos
+Conhecimentos Específicos
+Língua Portuguesa
+Matemática
+Questões
+Pontuação
+Questões
+Pontuação
+Questões
+Pontuação
+1 a 10
+1,0 cada
+11 a 20
+1,0 cada
+21 a 60
+1,0 cada
+Total: 20,0 pontos
+Total: 40,0 pontos
+Total: 60,0 pontos
+b) CARTÃO-RESPOSTA destinado às respostas das questões objetivas formuladas nas provas. 
+02 - O candidato deve verificar se este material está em ordem e se o seu nome e número de inscrição conferem com os que 
+aparecem no CARTÃO-RESPOSTA. Caso não esteja nessas condições, o fato deve ser IMEDIATAMENTE notificado 
+ao fiscal.
+03 - Após a conferência, o candidato deverá assinar, no espaço próprio do CARTÃO-RESPOSTA, com caneta esferográfica 
+de tinta preta, fabricada em material transparente.
+04 - No CARTÃO-RESPOSTA, a marcação das letras correspondentes às respostas certas deve ser feita cobrindo a letra e 
+preenchendo todo o espaço compreendido pelos círculos, com caneta esferográfica de tinta preta, fabricada em material 
+transparente, de forma contínua e densa. A leitura ótica do CARTÃO-RESPOSTA é sensível a marcas escuras; portanto, 
+os campos de marcação devem ser preenchidos completamente, sem deixar claros.
+Exemplo:  
+05 - O candidato deve ter muito cuidado com o CARTÃO-RESPOSTA, para não o DOBRAR, AMASSAR ou MANCHAR. 
+O CARTÃO-RESPOSTA SOMENTE poderá ser substituído se, no ato da entrega ao candidato, já estiver danificado.
+06 - Imediatamente após a autorização para o início das provas, o candidato deve conferir se este CADERNO DE QUESTÕES está 
+em ordem e com todas as páginas. Caso não esteja nessas condições, o fato deve ser IMEDIATAMENTE notificado ao fiscal.
+07 - As questões objetivas são identificadas pelo número que se situa acima de seu enunciado. 
+08  - Para cada uma das questões objetivas, são apresentadas 5 alternativas classificadas com as letras (A), (B), (C), (D) e (E); 
+só uma responde adequadamente ao quesito proposto. O candidato só deve assinalar UMA RESPOSTA: a marcação 
+em mais de uma alternativa anula a questão, MESMO QUE UMA DAS RESPOSTAS ESTEJA CORRETA.
+09  - SERÁ ELIMINADO deste Processo Seletivo Público o candidato que:
+a) for surpreendido, durante as provas, em qualquer tipo de comunicação com outro candidato;
+b) portar ou usar, durante a realização das provas, aparelhos sonoros, fonográficos, de comunicação ou de registro, 
+eletrônicos ou não, tais como agendas, relógios de qualquer natureza, notebook, transmissor de dados e mensagens, 
+máquina fotográfica, telefones celulares, pagers, microcomputadores portáteis e/ou similares;
+c) se ausentar da sala em que se realizam as provas levando consigo o CADERNO DE QUESTÕES e/ou o CARTÃO-RESPOSTA;
+d) se recusar a entregar o CADERNO DE QUESTÕES e/ou o CARTÃO-RESPOSTA, quando terminar o tempo estabelecido;
+e) não assinar a LISTA DE PRESENÇA e/ou o CARTÃO-RESPOSTA.
+Obs. O candidato só poderá ausentar-se do recinto das provas após 2 (duas) horas contadas a partir do efetivo início 
+das mesmas. Por motivos de segurança, o candidato NÃO PODERÁ LEVAR O CADERNO DE QUESTÕES, a qualquer 
+momento. 
+10 - O candidato deve reservar os 30 (trinta) minutos finais para marcar seu CARTÃO-RESPOSTA. Os rascunhos e as marcações 
+assinaladas no CADERNO DE QUESTÕES NÃO SERÃO LEVADOS EM CONTA.
+11 - O candidato deve, ao terminar as provas, entregar ao fiscal o CADERNO DE QUESTÕES e o CARTÃO-RESPOSTA 
+e ASSINAR A LISTA DE PRESENÇA.
+12 - O TEMPO DISPONÍVEL PARA ESTAS PROVAS DE QUESTÕES OBJETIVAS É DE 4 (QUATRO) HORAS, já incluído 
+o tempo para marcação do seu CARTÃO-RESPOSTA, findo o qual o candidato deverá, obrigatoriamente, entregar 
+o CARTÃO-RESPOSTA e o CADERNO DE QUESTÕES.  
+13 - As questões e os gabaritos das Provas Objetivas serão divulgados a partir do primeiro dia útil após sua realização, 
+na página da FUNDAÇÃO CESGRANRIO (www.cesgranrio.org.br).
+Processo Seletivo 
+Público - Edital No 01 
+- TRANSPETRO/
+PSP/TERRA/NÍVEL
+MÉDIO - 2023.1, de 
+29 de setembro de 2023.
+DUTOS E TERMINAIS
+2
+
+PROVA 2 - DUTOS E TERMINAIS
+2
+TRANSPETRO
+TERRA
+CONHECIMENTOS BÁSICOS
+LÍNGUA PORTUGUESA
+Brasil, paraíso dos agrotóxicos
+O Brasil vive um drama: ao acordar do sonho de 
+uma economia agrária pujante, o país desperta para 
+o pesadelo de ser, pelo quinto ano consecutivo, o 
+maior consumidor de agrotóxicos do planeta. Balança 
+comercial tinindo; agricultura a todo vapor. Mas quan­
+to custa, por exemplo, uma saca de milho, soja ou 
+algodão? Será que o preço de tais commodities – que 
+há tempos são o motor de uma economia primária 
+à la colonialismo moderno – compensa os prejuízos 
+sociais e ambientais negligenciados nos cálculos do 
+comércio internacional?
+“Pergunta difícil”, diz o economista Wagner Soa­
+res, do Instituto Brasileiro de Geografia e Estatística 
+(IBGE). A Bolsa de Chicago define o preço da soja; 
+mas não considera que, para se produzir cada saca, 
+são aplicadas generosas doses de agrotóxicos que 
+permanecem no ambiente natural – e no ser humano 
+– por anos ou mesmo décadas. “Ao final das contas, 
+quem paga pela intoxicação dos trabalhadores e pela 
+contaminação ambiental é a sociedade”, afirma So­
+ares. Em seu melhor economês, ele garante que as 
+“externalidades negativas” de nosso modelo agrário 
+continuam de fora dos cálculos.
+Segundo o economista do IBGE, que estudou 
+propriedades rurais no Paraná, cada dólar gasto na 
+compra de agrotóxicos pode custar aos cofres pú­
+blicos 1,28 dólar em futuros gastos com a saúde de 
+camponeses intoxicados. Mas este é um valor subes­
+timado. Afinal, Soares contabilizou apenas os custos 
+referentes a intoxicações agudas. Levando-se em 
+conta os casos crônicos, acrescidos da contamina­
+ção ambiental difusa nos ecossistemas, os prejuízos 
+podem atingir cifras assustadoramente maiores. “Es­
+tamos há décadas inseridos nesse modelo agrário, e 
+estudos mensurando seus reais custos socioambien­
+tais são raros ou inexistentes”, diz.
+Seja na agricultura familiar, seja nas grandes 
+propriedades rurais, “os impactos dos agrotóxicos na 
+saúde pública abrangem vastos territórios e envol­
+vem diferentes grupos populacionais”, afirma dossiê 
+publicado pela Associação Brasileira de Saúde Cole­
+tiva (Abrasco), entidade que reúne pesquisadores de 
+diversas universidades do país. 
+Não são apenas agricultores e suas famílias que 
+integram grupos de risco. Todos os milhares de pro­
+fissionais envolvidos no comércio e na manipulação 
+dessas substâncias são potenciais vítimas. E, além 
+deles, “todos nós, diariamente, a cada refeição, in­
+gerimos princípios ativos de agrotóxicos em nossos 
+alimentos”, garante uma médica da Universidade Fe­
+deral do Ceará (UFC). “Hoje, todo mundo come vene­
+no”, afirma um agricultor.
+Produtores e especialistas alinhados ao mode­
+lo convencional de produção agrícola insistem:  sem 
+agrotóxicos seria impossível alimentar uma popula­
+ção mundial em constante expansão. Esses venenos 
+seriam, portanto, um mal necessário, de acordo com 
+esses produtores. Agricultores garantem que não há 
+nenhuma dificuldade em produzir alimentos orgâni­
+cos, sem agrotóxicos, para  alimentar a população. 
+Segundo eles, “a humanidade domina a agricultura 
+há pelo menos 10 mil anos, e o modelo imposto no 
+século 20 vem apagando a herança e o acúmulo de 
+conhecimento dos métodos tradicionais.”
+Mas a pergunta que não quer calar é: será que 
+um modelo dito “alternativo” teria potencial para ali­
+mentar uma população que, até 2050, deverá chegar 
+a 9 bilhões? Certamente tem muito mais potencial do 
+que o agronegócio que, hoje, não dá conta nem de 
+alimentar 7 bilhões, retrucam estudiosos. Sistemas 
+de produção descentralizados têm muito mais condi­
+ções de produzir e distribuir alimentos em quantidade 
+e qualidade. Precisamos de outra estrutura agrária – 
+baseada em propriedades menores, com produção 
+diversificada, privilegiando mercados locais e con­
+templando a conservação da biodiversidade. A en­
+genheira agrônoma Flávia Londres assina embaixo 
+e defende que “Monoculturas são grandes desertos 
+verdes. A agroecologia, portanto, requer uma mudan­
+ça paradigmática no modelo agrário, que resultaria, 
+na verdade, em uma mudança cultural”.
+KUGLER, H. Revista Ciência Hoje, n. 296, v. 50. RJ: SBPC. 
+set. 2012. Adaptado.
+1
+O objetivo principal do texto é discutir a
+(A)	contraposição entre a agricultura orgânica e a conven­
+cional, baseada no uso de agrotóxicos.
+(B)	implementação de monoculturas para a renovação do 
+bem-sucedido modelo agrário brasileiro.
+(C)	importância de o nosso país se manter na liderança 
+na  concorrência mundial do agronegócio. 
+(D)	intoxicação dos trabalhadores e a contaminação am­
+biental provocados pela agricultura familiar.
+(E)	perspectiva de o agronegócio conseguir produzir ali­
+mentos para uma população de sete bilhões de pes­
+soas.
+1
+2
+3
+4
+5
+6
+7
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+3
+TERRA
+TRANSPETRO
+2
+O trecho que apresenta a proposta do autor para a solu­
+ção do problema discutido é:
+(A)	“O Brasil vive um drama: ao acordar do sonho de uma 
+economia agrária pujante, o país desperta para o pe­
+sadelo de ser, pelo quinto ano consecutivo, o maior 
+consumidor de agrotóxicos do planeta” (parágrafo 1)
+(B)	“A Bolsa de Chicago define o preço da soja; mas não 
+considera que, para se produzir cada saca, são apli­
+cadas generosas doses de agrotóxicos que permane­
+cem no ambiente natural – e no ser humano – por 
+anos ou mesmo décadas” (parágrafo 2)
+(C)	“Levando-se em conta os casos crônicos, acrescidos 
+da contaminação ambiental difusa nos ecossistemas, 
+os prejuízos podem atingir cifras assustadoramente 
+maiores.” (parágrafo 3)
+(D)	“Todos os milhares de profissionais envolvidos no co­
+mércio e na manipulação dessas substâncias são po­
+tenciais vítimas.” (parágrafo 5)
+(E)	“Precisamos de outra estrutura agrária – baseada em 
+propriedades menores, com produção diversificada, 
+privilegiando mercados locais e contemplando a con­
+servação da biodiversidade.” (parágrafo 7)
+3
+No trecho “Em seu melhor economês, ele garante que 
+as ‘externalidades negativas’ de nosso modelo agrário 
+continuam de fora dos cálculos” (parágrafo 2), a expres­
+são destacada refere-se a
+(A)	prejuízos sociais e ambientais causados pelo uso dos 
+agrotóxicos
+(B)	opiniões dos produtores sobre os benefícios dos agro­
+tóxicos
+(C)	lucros obtidos com o grande crescimento do agrone­
+gócio
+(D)	influências negativas de outros países na economia 
+agrária 
+(E)	efeitos do aumento das commodities na economia 
+brasileira
+4
+Considere os dois períodos do seguinte trecho do pará­
+grafo 6: “Esses venenos seriam, portanto, um mal ne­
+cessário, de acordo com esses produtores. Agricultores 
+garantem que não há nenhuma dificuldade em produzir 
+alimentos orgânicos, sem agrotóxicos, para  alimentar a 
+população”.
+Para transformá-los em um só período, mantendo-se o 
+sentido do trecho original, deve-se empregar a palavra
+(A)	para
+(B)	porque
+(C)	quando
+(D)	portanto
+(E)	entretanto
+5
+No trecho “ao acordar do sonho de uma economia agrá­
+ria pujante, o país desperta para o pesadelo de ser, pelo 
+quinto ano consecutivo, o maior consumidor de agrotóxi­
+cos do planeta” (parágrafo 1), a palavra destacada pode 
+ser substituída, sem prejuízo do sentido, por
+(A)	apreciada
+(B)	incipiente
+(C)	inoperante
+(D)	possante
+(E)	moderna
+6
+No trecho “Esses venenos seriam, portanto, um mal ne­
+cessário, de acordo com esses produtores.” (parágrafo 6), 
+a palavra destacada veicula a relação lógica de
+(A)	adição  
+(B)	conclusão 
+(C)	concessão 
+(D)	explicação 
+(E)	temporalidade
+7
+No texto, o referente da palavra ou expressão em des­
+taque está corretamente explicitado, entre colchetes, no 
+trecho do 
+(A)	parágrafo 1 – “Será que o preço de tais commodities 
+– que há tempos são o motor de uma economia primá­
+ria” [agrotóxicos] 
+(B)	parágrafo 3 – “Mas este é um valor subestimado.” 
+[cada dólar gasto na compra de agrotóxicos]
+(C)	parágrafo 5 – “Todos os milhares de profissionais en­
+volvidos no comércio e na manipulação dessas subs­
+tâncias são potenciais vítimas.” [agrotóxicos]
+(D)	parágrafo 5 – “E, além deles, ‘todos nós, diariamente, 
+a cada refeição, ingerimos princípios ativos de agrotó­
+xicos em nossos alimentos’” [especialistas]
+(E)	parágrafo 6 – “Segundo eles, ‘a humanidade domina 
+a agricultura há pelo menos 10 mil anos’” [produtores 
+e especialistas] 
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+4
+TRANSPETRO
+TERRA
+8
+O acento grave indicativo de crase está empregado de 
+acordo com a norma-padrão da língua portuguesa, na pa­
+lavra destacada em:
+(A)	A água consumida pela população apresenta resíduos 
+de agrotóxicos, o que prejudica a vida de todos que 
+à ingerem, por estar contaminada. 
+(B)	A produção de alimentos orgânicos, sem agrotóxicos, 
+representa um avanço considerável  na economia bra­
+sileira, pois beneficia à agricultura familiar.
+(C)	Os especialistas chegaram à conclusão de que os 
+governos precisam tomar medidas para prevenir os 
+estragos causados pelos agrotóxicos.
+(D)	A valorização do meio ambiente permite aos seus de­
+fensores alcançarem os objetivos propostos e se apli­
+ca à diversas situações que envolvem o bem-estar da 
+população.
+(E)	Os agricultores responsáveis pelas colheitas de soja 
+foram forçados à adotar práticas para prevenir a ame­
+aça de redução de suas safras. 	
+9
+O emprego da vírgula está plenamente de acordo com 
+as exigências da norma-padrão da língua portuguesa em: 
+(A)	A enorme quantidade de agrotóxicos empregados, 
+para exterminar pragas nas plantações contamina as 
+águas e os solos de toda a região. 
+(B)	A função dos agrotóxicos de acordo com os produ­
+tores, é reduzir a quantidade de pragas e facilitar a 
+vida do agricultor para que ele tenha seus lucros ga­
+rantidos.
+(C)	A presença de pragas nos alimentos, pode sofrer uma 
+grande redução se for possível dar preferência a ali­
+mentos cozidos ao invés de in natura.
+(D)	Estudos realizados em várias partes do mundo têm 
+provado que os alimentos orgânicos, sem uso de ferti­
+lizantes químicos, respeitam a saúde dos trabalhado­
+res e dos consumidores.   
+(E)	O depoimento de especialistas que estudam meios de 
+melhorar a produção agrícola, revela que o extermínio 
+de pragas na lavoura tem sido realizado de forma ina­
+dequada.
+	
+10
+De acordo com as regras de concordância nominal da 
+norma-padrão da língua portuguesa, a palavra destacada 
+está empregada corretamente em:
+(A)	A mudança das leis sobre o uso de agrotóxicos e a 
+repressão dos órgãos de vigilância sanitária devem 
+ser implementadas com urgência para evitar mais 
+mortes. 
+(B)	As leis instituídas para proteger os cidadãos e os ensi­
+namentos dos estudiosos sobre o uso de agrotóxicos 
+devem ser divulgadas para que tenham alcance geral.
+(C)	O desenvolvimento de novas estratégias de plantio 
+e a substituição da agricultura convencional pela or­
+gânica são consideradas uma exigência dos tempos 
+atuais para muitos produtores rurais.
+(D)	Os estudos realizados por especialistas de saúde em 
+laboratórios e a busca por exterminar doenças conta­
+giosas são indicativas do progresso da medicina nos 
+últimos tempos. 
+(E)	Os procedimentos orientados pelos especialistas e a 
+concessão de verbas públicas pelos órgãos governa­
+mentais têm sido entendidas como imprescindíveis 
+para o desenvolvimento da agricultura familiar.
+RASCUNHO
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+5
+TERRA
+TRANSPETRO
+MATEMÁTICA
+11
+Considerando-se os números reais 275, 350 e 437, o menor 
+e o maior deles são, respectivamente,
+(A) 437 e 350
+(B) 437 e 275
+(C) 350 e 275
+(D) 350 e 437
+(E) 275 e 437
+12
+Após 28 anos de existência, nota de R$ 100 
+compra em 2022 o mesmo que R$ 13,91 em 1994
+Nota de R$ 100 — Foto: Divulgação/BC
+Disponível em: https://g1.globo.com/economia/noticia/2022/07/16/
+apos-28-anos-de-existencia-nota-de-r-100-compra-hoje-o-
+mesmo-que-r-1391-em-1994.ghtml. Acesso em: 21 abr. 2023.
+Suponha que, em 1994, um artigo custasse R$ 13,91 e, 
+exatos 28 anos depois (336 meses), ele passasse a custar 
+R$ 100,00. Suponha, também, que, para esse período, a 
+taxa mensal de aumento no preço desse artigo tenha sido 
+igual a k%, ou seja, a cada mês o preço do artigo sofreu 
+um aumento de k% em relação ao preço do mês anterior.
+O valor de k pode ser dado por
+(A)
+ 
+
+
+-
+
+
+
+
+1/336
+100
+100
+100
+13,91
+(B) 
+ 
+
+
+-
+
+
+
+
+336
+100
+100
+100
+13,91
+(C) 
+ 
+
+
+-
+
+
+
+
+1/336
+100
+1
+13,91
+(D)
+ 
+
+
++
+
+
+
+
+336
+100
+0,01
+13,91
+(E)
+ 
+
+
++
+
+
+
+
+1/336
+100
+100
+0,01
+13,91
+13
+Uma empresa, em reconhecimento ao desempenho de 
+10 de seus funcionários, decide dar-lhes um bônus. Para 
+tanto, a empresa distribuiu um total de R$ 25.000,00, de 
+acordo com a Tabela a seguir:
+Número de 
+funcionários
+Valor do Bônus 
+(em reais)
+6
+2000
+2
+2500
+2
+4000
+Nessas condições, o desvio padrão dos bônus pagos é 
+dado por
+(A)
+ 
+2
+2
+2
+36 2000
+4 2500
+4 4000
+10
+⋅
++
+⋅
++
+⋅
+(B) 
+ 
+2
+2
+2
+36 500
+4 2500
+4 1500
+10
+⋅
++
+⋅
++
+⋅
+(C) 
+ 
+2
+2
+2
+6 2000
+2 2500
+2 4000
+10
+⋅
++
+⋅
++
+⋅
+(D)
+ 
+2
+2
+500
+1500
+10
++
+(E)
+ 
+2
+2
+6 500
+2 1500
+10
+⋅
++
+⋅
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+6
+TRANSPETRO
+TERRA
+14
+O quadrado de um número real x é representado por x2, e 
+é definido por x2 = x.x.
+A condição x ≤ x2 é FALSA quando x é igual a  
+(A) 0
+(B) 1
+2
+(C) 1
+(D)
+1
+2
+-
+(E) 3
+2
+15
+Em uma escola, há cinco turmas que fizeram uma pro­
+va de matemática, e cada uma possui 60 estudantes. As 
+notas obtidas em cada turma tiveram as seguintes distri­
+buições:
+•	Turma 1: 30 notas iguais a 0 e 30 notas iguais a 10;
+•	Turma 2: 30 notas iguais a 2 e 30 notas iguais a 8;
+•	Turma 3: 30 notas iguais a 3 e 30 notas iguais a 7;
+•	Turma 4: 30 notas iguais a 4 e 30 notas iguais a 6;
+•	Turma 5: 60 notas iguais a 5.
+Em qual das turmas o desvio-padrão das notas obtidas foi 
+igual a zero?
+(A)	Turma 1
+(B)	Turma 2
+(C)	Turma 3
+(D)	Turma 4
+(E)	Turma 5
+16
+Um carro partiu de um ponto A até um ponto B andando 
+com uma velocidade constante de 80 km/h. Posteriormen­
+te o carro refez o mesmo percurso, mas agora com velo­
+cidade constante igual a 100 km/h, e gastou 30 minutos a 
+menos do que na primeira vez.
+Quanto tempo o carro levou para ir do ponto A ao ponto B, 
+na primeira vez?
+(A)	3h
+(B)	2h30min
+(C)	2h
+(D)	1h50min
+(E)	1h30min
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+7
+TERRA
+TRANSPETRO
+17
+Em uma fábrica, há um tanque cuja capacidade máxima 
+é de 180 m3. Estando o tanque vazio, três torneiras de 
+mesma vazão gastam oito horas para enchê-lo comple­
+tamente. Um outro tanque, com capacidade máxima de 
+x metros cúbicos, está sendo construído e, quando vazio, 
+cinco torneiras (com a mesma vazão das anteriores) de­
+verão enchê-lo completamente em apenas y horas.
+Nessas condições, o valor de y em função de x é definido 
+por
+(A) y = 2x/81
+(B) y = 2x/54
+(C) y = 2x/45
+(D) y = 2x/27
+(E) y = 2x/75
+18
+Em um torneio de videogame, o menino J disputou ape­
+nas três partidas, fazendo um total de 2.660 pontos. Na 
+segunda partida, ele fez 410 pontos a mais do que fez na 
+primeira; na terceira partida, fez apenas metade de pon­
+tos que fez na segunda.
+O número de pontos feitos por J, apenas na primeira par­
+tida, quando dividido por 5, deixa resto igual a
+(A) 4
+(B) 3
+(C) 2
+(D) 1
+(E) 0
+19
+O triângulo ABC é retângulo em A. Sabe-se que o compri­
+mento da hipotenusa BC é igual a 20 cm, e que o compri­
+mento do cateto AB é igual a 12 cm.
+Qual é a área, em cm2, do triângulo ABC?
+(A)	16 
+(B)	48 
+(C)	60 
+(D)	96 
+(E)	240 
+20
+Um consumidor foi ao mercado, comprou 1 kg de bata­
+ta e 1 kg de cebola e pagou R$ 11,00. No dia seguinte, 
+ele comprou 3 kg de batata e 2 kg de cebola e pagou 
+R$ 28,00. No terceiro dia, ele comprou 2 kg de batata e 
+1 kg de cebola. 
+Considerando-se que os preços não foram alterados du­
+rante esse período, que valor, em R$, o consumidor pa­
+gou no terceiro dia?
+(A)	5
+(B)	6
+(C)	16
+(D)	17
+(E)	39
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+8
+TRANSPETRO
+TERRA
+CONHECIMENTOS ESPECÍFICOS
+21
+A distribuição eletrônica e a posição na tabela periódica, 
+do elemento químico com número atômico 12, em seu es­
+tado fundamental, são, respectivamente,  
+Distribuição Eletrônica
+Posição na Tabela Periódica
+(A)
+1s2 2s2 2p4 3s2 
+2o período; grupo 2
+(B)
+1s2 2s2 2p6 3s2 
+2o período; grupo 3
+(C) 1s2 2s2 2p4 3s2 
+3o período; grupo 2
+(D) 1s2 2s2 2p6 3s2 
+3o período; grupo 3
+(E)
+1s2 2s2 2p6 3s2 
+3o período; grupo 2
+22
+A molécula de oxigênio pode ser representada como 
+:Ö=Ö: , segundo o modelo de estruturas de Lewis. 
+O número de elétrons que estão sendo compartilhados 
+para formar a ligação covalente é igual a
+(A)	2
+(B)	4
+(C)	8
+(D)	10
+(E)	12
+23
+Um balão flexível contém um gás que se comporta ideal­
+mente. Na situação inicial, o volume ocupado pelo gás é 
+de 35,0 m3 a 25,0°C e 1,00 atm. Considere o aquecimen­
+to do balão, com expansão do volume para 50,0 m3, de 
+tal forma que a pressão permaneceu constante.
+Nessa situação final, a  temperatura do balão, em K, é 
+(A) 152,7
+(B) 218,1
+(C) 340,6
+(D) 425,7
+(E) 510,8
+Dado
+T(K) = T(°C) + 273
+24
+À luz da teoria de ácidos e bases de Brönsted-Lowry, con­
+clui-se que um(a)
+(A)	ácido mais forte tem maior tendência à transferência 
+de um íon H+ do que um ácido mais fraco.
+(B)	ácido é a espécie com tendência de aceitar um íon 
+H+.
+(C)	base é a espécie com tendência de transferir um íon 
+H+.
+(D)	base mais forte tem menor tendência para aceitar um 
+íon H+ do que uma base mais fraca.
+(E)	amina primária (–NH2) é uma espécie ácida e transfe­
+re íons H+. 
+25
+O PTFE é um fluoropolímero sintético com alta massa 
+molecular, cujo precursor monomérico é o tetrafluoretileno 
+(TFE). O PTFE é conhecido por ser antiaderente, ter alta 
+estabilidade térmica e baixa reatividade química. 
+Das estruturas a seguir, a que representa a unidade de 
+repetição do PTFE é a
+(A)
+H
+H
+H
+H
+C
+C
+n
+(B) 
+H
+F
+H
+F
+C
+C
+n
+(C) 
+F
+F
+F
+F
+C
+C
+n
+(D)
+H
+H
+H
+C
+C
+n
+(E)
+F
+F
+F
+F
+C
+C
+n
+F
+F
+F
+O
+C
+C
+m
+C
+F
+F
+F
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+9
+TERRA
+TRANSPETRO
+26
+O entendimento do efeito fotoelétrico, no início do século 
+XX, desempenhou um papel crucial no desenvolvimento 
+da teoria quântica e gerou avanços na compreensão da 
+natureza elétrica da matéria. 
+O princípio fundamental do efeito fotoelétrico consiste na 
+(A)	emissão de luz quando elétrons colidem com átomos 
+de uma superfície metálica.
+(B)	ejeção de elétrons de uma superfície metálica quando 
+ela é exposta à luz.
+(C)	reflexão total da luz em uma superfície metálica. 
+(D)	refração total da luz em uma superfície transparente.
+(E)	produção de um campo elétrico em resposta à luz in­
+cidida. 
+27
+Considere o sistema de equações a seguir, que envolvem 
+reações de hidrocarbonetos.
+As substâncias X, Y e Z são, respectivamente
+(A)	CH3Cl, CH4, HONO2
+(B)	CH3Cl, HONO2, CH4
+(C)	CH4, HONO2, CH3Cl
+(D)	CH4, CH3Cl, HONO2
+(E)	HONO2, CH4, CH3Cl
+28
+Um carrinho utilizado na movimentação de cargas em um 
+armazém é puxado do repouso até uma velocidade de 
+2,0 m/s em 4 segundos e com movimento uniformemente 
+variado. 
+A distância, em metros, percorrida pelo carrinho durante 
+esse tempo é
+(A)	2
+(B)	4
+(C)	6
+(D)	8
+(E)	10
+29
+Uma viga de seção transversal retangular de dimensões 
+b x h é submetida a um momento fletor M, conforme indi­
+cado na Figura.
+h/2
+b/2
+b/2
+h/2
+y
+x
+C
+M
+D
+A
+B
+A tensão normal compressiva máxima na seção mostrada 
+atuará no(s) ponto(s)
+(A)	A, apenas
+(B)	B, apenas
+(C)	A e D
+(D)	A e B
+(E)	B e C
+30
+O descarregamento de uma caixa de massa m é realizado 
+com o deslizamento da caixa por um plano inclinado de a 
+graus (10º < a < 30º), conforme mostrado na Figura.
+m
+α
+plano sem atrito
+Considerando-se nulo o atrito entre a caixa e o plano, e 
+sendo g a aceleração da gravidade, a aceleração de des­
+lizamento da caixa sobre o plano
+(A)	é nula.
+(B)	é igual a g.
+(C)	independe do ângulo a.
+(D)	independe da massa da caixa.
+(E)	é proporcional à massa da caixa.
+
+PROVA 2 - DUTOS E TERMINAIS
+10
+TRANSPETRO
+TERRA
+31
+Na Figura abaixo, representa-se uma força concentra­
+da F, aplicada à extremidade da viga biapoiada ABCD, 
+com o objetivo de elevar uma carga posicionada con­
+forme indicado.
+O menor valor da força F, expressa em newtons, para ele­
+var uma carga P de 2.100 N, que faz com que a reação no 
+apoio A seja nula, é 
+(A)	525
+(B)	700
+(C)	1.575 
+(D)	1.050
+(E)	2.100
+32
+A estrutura representada na Figura abaixo é constituída 
+de 3 barras unidas pelo pino B. Considere que as barras 
+1 e 2 tenham área de seção transversal de 1,0 cm2, e a 
+barra 3, área de 1,2 cm2.
+As tensões normais que atuam nas barras 1, 2 e 3 para 
+suportar a carga P de 2.400 N são, em MPa, respectiva­
+mente, de
+(A)	20 (compressão), 24 (compressão) e 24 (tração)
+(B)	20 (tração), 20 (compressão) e 24 (tração)
+(C)	24 (compressão), 24 (tração) e 20 (compressão)
+(D)	24 (compressão), 24 (compressão) e 20 (tração)
+(E)	24 (compressão), 24 (compressão) e 24 (tração)
+33
+O Sistema Internacional de Unidades (SI) admite a utiliza­
+ção de múltiplos e submúltiplos das unidades.
+Uma força de 1,0 kN que atua no sentido de comprimir 
+uma barra cuja seção transversal é de 5,0 cm2 provocará 
+uma tensão normal compressiva, expressa em MPa, de
+(A)	0,1
+(B)	0,2
+(C)	1,0
+(D)	2,0
+(E)	10,0
+34
+Todo processo de transformação do estado de uma de­
+terminada substância em uma cadeia de processamento, 
+para a composição de um produto final, envolve opera­
+ções que necessitam de controle, a fim de manter algu­
+mas grandezas dentro de valores pré-estabelecidos. A va­
+zão é uma das principais variáveis desse tipo de processo 
+e pode ser medida utilizando-se um medidor de vazão 
+por área variável, no qual um flutuador varia sua posição 
+dentro de um tubo cônico, proporcionalmente à vazão do 
+fluido.
+Esse tipo de medidor é denominado 
+(A) célula capacitiva 
+(B) manômetro 
+(C) placa orifício
+(D) rotâmetro
+(E) tubo Venturi
+35
+Considere uma força magnética atuando em um condutor 
+retilíneo de comprimento l, percorrido por uma corrente i. 
+Esse condutor está imerso em uma região onde existe um 
+campo magnético uniforme ( ),
+
+B que forma um ângulo θ
+com o condutor.
+Essa força magnética é representada pela seguinte 
+equação:
+(A)
+F = B
+sen  
+i 
+θ
+(B) 
+F = B sen  
+i 
+θ
+(C) 
+F = B
+cos  
+i 
+θ
+(D)
+F = B tan  
+i 
+θ
+(E)
+F = B i 
+
+PROVA 2 - DUTOS E TERMINAIS
+11
+TERRA
+TRANSPETRO
+36
+Um técnico atuante na área de óleo e gás deve ter co­
+nhecimento dos riscos inerentes ao trabalho de extração, 
+refino e manipulação de petróleo e de seus derivados. Um 
+conhecimento muito importante é sobre os sistemas ins­
+trumentados de segurança que operam acima da camada 
+de controle de processo e que atuam na presença de fa­
+lha de algum componente ou do desvio dos limites tole­
+ráveis de operação do processo, garantindo a segurança 
+dos trabalhadores e das instalações.
+O nível de integridade de segurança (SIL) que oferece o 
+maior nível de redução do fator de risco é o
+(A)	0
+(B)	3
+(C)	4
+(D)	5
+(E)	6
+37
+A partir de dois métodos de conversão de sinal — método 
+de equilíbrio de força e método de equilíbrio de movimen­
+to — são fabricados os tipos de transmissores
+(A)	eletrônicos e analógicos
+(B)	digitais
+(C)	inteligentes
+(D)	pneumáticos
+(E)	smart
+38
+Em metrologia, há um conceito associado ao conjunto de 
+condições que incluem o mesmo procedimento de medi­
+ção, os mesmos operadores, o mesmo sistema de medi­
+ção, as mesmas condições de operação e o mesmo local 
+de medição.
+Trata-se do conceito de condições de
+(A)	abrangência
+(B)	aleatoriedade
+(C)	definibilidade
+(D)	repetibilidade
+(E)	reprodutibilidade
+RASCUNHO
+
+12
+TRANSPETRO
+PROVA 2 - DUTOS E TERMINAIS
+TERRA
+39
+O dispositivo representado na Figura abaixo é um tubo de Venturi, que compreende duas seções, a maior com área S1, 
+e a menor, com área S2, ambas conhecidas. Nas direções verticais correspondentes aos pontos P1 e P2, são conectados 
+dois tubos verticais, ambos com as extremidades superiores abertas e as inferiores em comunicação com o interior desse 
+tubo, por onde um fluido conhecido é canalizado. Considere que: v1 é a velocidade na região S1; v2, a velocidade na região 
+S2 (garganta); e Dh, a medida do desnível do líquido existente nos tubos verticais.
+Esse dispositivo é usado para medir
+(A)	calor
+(B)	temperatura absoluta
+(C)	temperatura relativa
+(D)	vazão
+(E)	viscosidade
+40
+O recipiente cilíndrico de diâmetro igual a 12 m, representado na Figura abaixo, é aberto no topo e contém água, cuja 
+densidade é igual a 1.000 kg/m3, até a linha indicada. O nível da água no interior do reservatório está a uma altura 
+h1 = 10,8 m, e a tubulação de saída, um duto circular com 20 cm2 de área de seção reta, está a uma altura h2 = 9 m.
+ 
+Considerando-se a situação apresentada, a vazão de saída de água, em kg/s, é igual a   
+(A) 0,012
+(B) 0,12
+(C) 1,2
+(D) 12
+(E) 120
+Dado
+g = 10 m/s2
+	
+
+PROVA 2 - DUTOS E TERMINAIS
+13
+TERRA
+TRANSPETRO
+41
+O dióxido de enxofre é um gás razoavelmente solúvel em 
+água, sendo usado para a produção industrial de ácido 
+sulfúrico. Uma matéria prima contendo enxofre elemen­
+tar sofreu uma reação na presença de excesso de gás 
+oxigênio, para formar 50.000 L do gás SO2, medido nas 
+condições normais de temperatura e pressão (CNTP) e 
+assumindo comportamento ideal dos gases, como mos­
+trado na reação abaixo.  
+S(s) + O2(g) → SO2(g)
+A reação do enxofre foi completa, e a massa da matéria 
+prima era 80,0 kg. 
+A partir dessa informação, a percentagem, em massa, de 
+enxofre elementar na matéria prima é, aproximadamente,
+(A)	25%
+(B)	36%
+(C)	44%
+(D)	73%
+(E)	82%
+Dado
+R = 0,082 atm L mol-1 K-1
+42
+Ao se inserir um pedaço de ferro metálico em uma solu­
+ção aquosa de sulfato de cobre, observa-se a formação 
+espontânea de uma camada acobreada na superfície da 
+placa de ferro.
+Sobre essa reação, verifica-se que o 
+(A)	Fe(s) sofre oxidação.
+(B)	processo envolve 1 mol de elétrons por 1 mol de Fe(s) 
+reagido.
+(C)	
+2
+(aq)
+Cu
++  perde elétrons.
+(D)	Cu(s) reduz formando 
+2
+(aq)
+Cu
++ .
+(E)	potencial padrão de redução do Cu(s) é menor do que 
+o do Fe(s).
+43
+A decomposição do carbonato de cálcio produz CO2, 
+como representado na reação termoquímica abaixo.
+CaCO3(s) → CaO(s) + CO2(g);  ΔH0 = +179 kJ
+Considerando-se o comportamento ideal do gás e o ren­
+dimento máximo da reação, a energia necessária, em MJ, 
+para produzir 36 m3 de CO2, medido nas condições nor­
+mais de temperatura e pressão (CNTP) é, aproximada­
+mente,
+(A)	-132
+(B)	-179
+(C)	+132
+(D)	+264
+(E)	+528
+Dado
+R × T = 24,4 atm L mol-1 
+M = 106
+44
+Uma solução comercial de um algicida contém 30 g de 
+cloreto de N,N-2-metil propilamônio em 100 mL de solu­
+ção. Para tratar situações de elevada formação de algas, 
+a receita é separar uma alíquota de 5,0 mL da solução 
+comercial, diluindo em água para formar 4,0 L de solução 
+final.
+A concentração do princípio ativo, em g L-1, dessa solu­
+ção final é, aproximadamente,
+(A)	0,15
+(B)	0,26
+(C)	0,38
+(D)	0,52
+(E)	0,90
+45
+Uma solução aquosa de hidróxido de sódio tem densida­
+de igual a 1,40 g mL-1 e 40% de teor do soluto, em massa. 
+A concentração, em mol L-1, do hidróxido na solução é
+(A)	4
+(B)	8
+(C)	10
+(D)	14
+(E)	16
+Dado
+M(NaOH) = 40 g mol-1
+46
+O bicarbonato de sódio (NaHCO3) é um reagente usa­
+do para finalidades diversas por conta de sua capacida­
+de para neutralização de ácidos e para produção do gás 
+CO2. Em contato com soluções aquosas ácidas, reage 
+como representado a seguir. 
+NaHCO3(s) + H3O+
+(aq) → Na+
+(aq) + 2H2O(l) + CO2(g)
+Considerando-se a proporção estequiométrica e o rendi­
+mento completo de reação, a massa de bicarbonato de 
+sódio necessária para neutralizar 20,0 L de solução aquo­
+sa, cujo pH medido foi 2, é
+(A)	8,4
+(B)	16,8
+(C)	24,6
+(D)	33,6
+(E)	40,2
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+14
+TRANSPETRO
+TERRA
+47
+Nanopartículas de prata (AgNP) são nanoestruturas contendo algumas centenas de átomos de Ag, cuja superfície apre­
+senta carga elétrica que as mantém dispersas em meio aquoso. 
+Baseado no tamanho e no grau de espalhamento de luz incidente, calculou-se em 1 × 10-5 mol L-1 a concentração de 
+AgNP na dispersão. A partir do tamanho médio, determinou-se que haveria 500 átomos de Ag por nanopartícula.  
+Considerando-se esses dados, verifica-se que a massa de prata, em mg, presente em 1 mL de dispersão é
+(A)	0,028
+(B)	0,054
+(C)	0,14
+(D)	0,28
+(E)	0,54
+Dado
+1 mol = 6 x 1023 unidades
+M (Ag) = 108 g mol-1
+ 
+48
+A protonação de uma amina biogênica requer absorção de calor, atingindo uma situação de equilíbrio no meio aquoso, 
+como descrito na reação abaixo.
+H2N-CH2-CH2-CH2-CH2-NH2(aq) + 2 H+
+(aq)  +H3N-CH2-CH2-CH2-CH2-NH3
++
+(aq)
+	
+Nesse sistema, verifica-se que o(a)
+(A)	aumento da concentração de H+ deslocaria a reação para a formação de +H3N-CH2-CH2-CH2-CH2-NH3
++.
+(B)	resfriamento da solução deslocaria a reação para a formação de +H3N-CH2-CH2-CH2-CH2-NH3
++.
+(C)	equilíbrio não dependeria do pH do meio.
+(D)	constante de equilíbrio seria K = [+H3N-CH2-CH2-CH2-CH2-NH3
++ ]/[H+]2.
+(E)	diluição da solução com água não perturbaria o equilíbrio.
+49
+Se um sensor analógico de nível transmitir um sinal 
+elétrico em tensão de 1 Vcc a 6 Vcc para um range de 
+0,7 m a 2,2 m, qual deverá ser a sensibilidade, em Vcc/m, 
+desse sensor?
+(A) 2,27  
+(B) 2,73   
+(C) 4,00
+(D) 4,67 
+(E) 3,33
+RASCUNHO
+RASCUNHO
+
+PROVA 2 - DUTOS E TERMINAIS
+15
+TERRA
+TRANSPETRO
+50
+Um cilindro longo de um material de condutividade térmi­
+ca k, comprimento L e raio da seção reta R, está colocado 
+entre uma fonte fria à temperatura TF e uma fonte quente 
+à temperatura TQ. O fluxo estacionário de calor que pas­
+sa por esse cilindro é J1. Um outro cilindro, feito de ou­
+tro material, com condutividade térmica k/2, comprimento 
+4L e raio de seção reta 4R, é colocado entre as mesmas 
+fontes, fria e quente. Para esse segundo cilindro, o fluxo 
+estacionário de calor é J2.
+A relação entre os fluxos estacionários de calor, J2/J1, é 
+igual a
+(A)	16
+(B)	4
+(C)	2
+(D)	1
+(E)	1/2
+51
+Em um acelerador eletrostático linear, com comprimento 
+igual a 6,0 m, prótons são acelerados a partir do repouso 
+até uma velocidade final de 4,0 . 106 m/s. 
+Qual é a diferença de potencial, em kV, na qual esse ace­
+lerador opera?
+(A)	8,5
+(B)	17
+(C)	34
+(D)	85
+(E)	170
+Dado
+carga elétrica do próton = 1,6 . 10-19 C
+massa do próton = 1,7 . 10-27 kg
+52
+Uma máquina térmica reversível realiza trabalho em ci­
+clos, de modo que retira 240 J de uma fonte quente a 
+627oC e rejeita 80 J em uma fonte fria à temperatura TF. 
+Qual é, em oC, a temperatura TF? 
+(A)	-273
+(B)	27
+(C)	327
+(D)	627
+(E)	900
+53
+A energia interna de um gás ideal diatômico depende 
+apenas de sua temperatura. Esse gás ideal passa por um 
+processo isotérmico, em contato com uma fonte térmica 
+à temperatura T. Observa-se que ele realiza um trabalho 
+total de 350 J sobre o meio ambiente. 
+O calor trocado pelo gás com a fonte térmica T é igual a
+(A)	175 J, e o calor é rejeitado pelo gás.
+(B)	175 J, e o calor é absorvido pelo gás.
+(C)	350 J, e o calor é rejeitado pelo gás.
+(D)	350 J, e o calor é absorvido pelo gás.
+(E)	700 J, e o calor é rejeitado pelo gás.
+54
+Um grande imã gera, em uma região do espaço, um 
+campo magnético uniforme, orientado verticalmente para 
+cima. Um feixe de elétrons é lançado horizontalmente, 
+nessa região. 
+Logo após entrar nessa região, esse feixe de elétrons é
+(A)	acelerado, mantendo sua direção original.
+(B)	freado, mantendo sua direção original.
+(C)	defletido verticalmente para cima.
+(D)	defletido verticalmente para baixo.
+(E)	defletido no plano horizontal, perpendicularmente à 
+direção de sua velocidade.
+55
+Uma partícula pontual A, de massa 1,5 . 10-6 g, tem carga 
+elétrica igual a +2,0 . 10-6 C e está fixa na origem do eixo x. 
+Na posição x = +4,0 cm, encontra-se outra partícula pon­
+tual B, com metade da massa e o dobro da carga elétrica 
+da partícula A. 
+O módulo, em newtons, e o sentido da força elétrica sen­
+tida pela partícula A devido à partícula B são, respectiva­
+mente,
+Dado
+constante elétrica k = 9,0 . 109 N m2/C2
+(A)	22,5, sentido negativo de x
+(B)	45, sentido negativo de x
+(C)	22,5, sentido positivo de x
+(D)	45, sentido positivo de x
+(E)	nulos, já que o efeito das massas anula a força elétrica
+56
+Na Figura abaixo, são mostrados 3 vasos, A, B e C, aber­
+tos para a atmosfera. Esses vasos têm formas diferentes, 
+mas foram preenchidos com água até o mesmo nível.
+A relação entre as pressões no fundo de cada um deles é 
+descrita por
+(A)	PB > PA > PC
+(B)	PB = PA > PC
+(C)	PB = PA = PC
+(D)	PB > PA = PC
+(E)	PB < PA < PC
+
+PROVA 2 - DUTOS E TERMINAIS
+16
+TRANSPETRO
+TERRA
+57
+Na Tabela abaixo são apresentadas algumas característi­
+cas termodinâmicas de um ciclo ideal de refrigeração por 
+compressão de vapor.
+Ciclo ideal de refrigeração
+Característica 
+Valor
+Calor trocado no evaporador
+120 kJ/kg
+Capacidade
+4,8 kW
+Trabalho do compressor
+40 kJ/kg
+Razão de circulação do refrigerante
+0,04 kg/s
+Com base nessas características, qual é o valor do coefi­
+ciente de eficácia desse ciclo?
+(A) 0,12
+(B) 4,80
+(C) 3,00
+(D) 0,33
+(E) 1,60
+58
+Um técnico precisava trocar um medidor de vazão e con­
+sultou o almoxarifado sobre a disponibilidade desse tipo 
+de instrumento. 
+Sabendo-se que o medidor que será substituído é do tipo 
+direto mássico, que medidor de vazão esse técnico deve­
+rá receber do almoxarifado?
+(A) Coriolis
+(B) Bocal de vazão
+(C) Placa de orifício
+(D) Tubo de Pitot
+(E) Tubo de Venturi
+59
+Um sistema de primeira ordem, como, por exemplo, um 
+sistema para controle de nível, apresenta a seguinte fun­
+ção de transferência:
+G(s) = 25/(s + 25).
+Qual é o valor, em segundos, da constante de tempo des­
+se sistema?
+(A) 0,01
+(B) 0,02
+(C) 0,03
+(D) 0,04
+(E) 0,05
+60
+As bombas industriais podem ser classificadas em dois 
+grandes grupos: as bombas dinâmicas e as bombas volu­
+métricas, cada um com seus subgrupos. 
+A bomba que corresponde a uma bomba volumétrica do 
+tipo rotativa é a
+(A) centrífuga
+(B) de pistão
+(C) de êmbolo
+(D) de diafragma
+(E) de palhetas deslizantes
+RASCUNHO
+
+Mg
+Na
+Ru
+Ta
+Nb
+Db
+Xe
+Rn
+In
+C
+Cd
+P
+52
+As
+Ag
+Br
+Te
+Ne
+Com massas atômicas referidas ao isótopo 12 do carbono
+I
+At
+Sg
+Tl
+Si
+Zn
+S
+53
+Se
+Hs
+Po
+He
+Sb
+Ar
+Mt
+Uun
+Uuu
+Uub
+Al
+Rf
+Sn
+O
+Hg
+Ge
+51
+B
+Fr
+54
+Kr
+Bh
+Bi
+F
+Pb
+N
+Au
+Ga
+Cu
+Cl
+Ra
+W
+Y
+Cr
+Ba
+La-Lu
+Ac-Lr
+Zr
+V
+Pt
+Pd
+Ni
+Sc
+Cs
+4
+51,996
+261
+32
+73
+79
+76
+82
+86
+104
+31
+9
+1,0079
+LÍTIO
+SÓDIO
+POTÁSSIO
+RUBÍDIO
+CÉSIO
+FRÂNCIO
+RÁDIO
+HIDROGÊNIO
+RUTHERFÓRDIO
+HÁFNIO
+ZIRCÔNIO
+TITÂNIO
+VANÁDIO
+TÂNTALO
+DÚBNIO
+SEABÓRGIO
+RÊNIO
+BÓHRIO
+HASSIO
+ÓSMIO
+RUTÊNIO
+FERRO
+COBALTO
+RÓDIO
+IRÍDIO
+MEITNÉRIO
+UNUNILIO
+UNUNÚNIO
+UNÚNBIO
+PLATINA
+PALÁDIO
+NÍQUEL
+COBRE
+ZINCO
+CÁDMIO
+MERCÚRIO
+TÁLIO
+CHUMBO
+BISMUTO
+POLÔNIO
+ASTATO
+RADÔNIO
+BROMO
+CRIPTÔNIO
+TELÚRIO
+IODO
+XENÔNIO
+ESTANHO
+ANTIMÔNIO
+ÍNDIO
+GÁLIO
+ALUMÍNIO
+BORO
+CARBONO
+NITROGÊNIO
+ENXOFRE
+CLORO
+OXIGÊNIO
+FLÚOR
+HÉLIO
+ARGÔNIO
+NEÔNIO
+FÓSFORO
+SILÍCIO
+GERMÂNIO
+ARSÊNIO
+SELÊNIO
+PRATA
+OURO
+TUNGSTÊNIO
+MOLIBDÊNIO
+TECNÉCIO
+CRÔMIO
+MANGANÊS
+NIÓBIO
+BERÍLIO
+CÁLCIO
+ESCÂNDIO
+ÍTRIO
+ESTRÔNCIO
+BÁRIO
+MAGNÉSIO
+91,224(2)
+43
+21
+87,62
+98,906
+131,29(2)
+74,922
+15,999
+192,22
+195,08(3)
+72,61(2)
+28,086
+58,933
+126,90
+78,96(3)
+10,811(5)
+41
+7
+54,938
+58,693
+121,76
+83,80
+14,007
+106,42
+127,60(3)
+79,904
+26,982
+55,845(2)
+118,71
+39,948
+4,0026
+39
+19
+9,0122
+95,94
+37
+12
+88,906
+223,02
+47
+23
+137,33
+190,23(3)
+208,98
+112,41
+35,453
+222,02
+209,98
+209,99
+114,82
+32,066(6)
+207,2
+107,87
+20,180
+45
+3
+39,098
+178,49(2)
+30
+57 a 71
+29
+1
+1
+2
+3
+4
+5
+6
+7
+11
+12
+13
+14
+15
+16
+17
+18
+VIII
+VIII
+VIII
+8
+9
+10
+26
+55
+72
+25
+6
+6,941(2)
+92,906
+36
+75
+81
+85
+89 a 103
+78
+84
+88
+106
+107
+108
+109
+110
+111
+112
+50,942
+226,03
+35
+11
+24,305
+180,95
+48
+49
+50
+24
+132,91
+46
+2
+28
+56
+27
+8
+47,867
+262
+40
+20
+44,956
+38
+5
+85,468
+102,91
+200,59(2)
+65,39(2)
+18,998
+186,21
+204,38
+63,546(3)
+30,974
+101,07(2)
+196,97
+69,723
+12,011
+34
+74
+80
+77
+83
+87
+105
+40,078(4)
+183,84
+33
+17
+15
+14
+18
+16
+13
+10
+22,990
+44
+22
+42
+1
+2
+3
+4
+5
+6
+7
+Hf
+Sr
+Mn
+Os
+Tc
+Rb
+Ti
+Ir
+Rh
+Co
+Ca
+Re
+Mo
+Fe
+K
+Be
+Li
+H
+CLASSIFICAÇÃO PERIÓDICA DOS ELEMENTOS
+IA
+IIA
+IIIB
+IVB
+VB
+VIB
+VIIB
+IB
+IIB
+IIIA
+IVA
+VA
+VIA
+VIIA
+VIIIA
+Série dos Actinídios
+Número Atômico
+Massa Atômica
+Símbolo
+Bk
+Cm
+Am
+Cf
+Es
+Md
+No
+Tm
+Yb
+Lu
+Lr
+Er
+Ho
+Dy
+Tb
+Fm
+Pu
+Np
+U
+Pa
+Ac
+Th
+Gd
+Eu
+Sm
+Pm
+Nd
+Pr
+Ce
+La
+64
+101
+58
+57
+69
+96
+89
+90
+LANTÂNIO
+ACTÍNIO
+NOME DO ELEMENTO
+TÓRIO
+PROTACTÍNIO
+URÂNIO
+NETÚNIO
+PLUTÔNIO
+AMERÍCIO
+CÚRIO
+BERQUÉLIO
+CALIFÓRNIO
+EINSTÊINIO
+FÉRMIO
+MENDELÉVIO
+NOBÉLIO
+LAURÊNCIO
+CÉRIO
+PRASEODÍMIO
+NEODÍMIO
+PROMÉCIO
+SAMÁRIO
+EURÓPIO
+GADOLÍNIO
+TÉRBIO
+DISPRÓSIO
+HÓLMIO
+ÉRBIO
+TÚLIO
+ITÉRBIO
+LUTÉCIO
+238,03
+249,08
+244,06
+252,08
+167,26(3)
+144,24(3)
+157,25(3)
+237,05
+252,08
+168,93
+162,50(3)
+146,92
+158,93
+227,03
+232,04
+239,05
+164,93
+262,11
+259,10
+258,10
+257,10
+140,12
+138,91
+150,36(3)
+63
+102
+70
+95
+92
+61
+94
+66
+100
+60
+67
+99
+62
+103
+93
+71
+97
+91
+65
+231,04
+241,06
+173,04(3)
+174,97
+140,91
+151,96
+59
+68
+98
+7
+6
+Série dos Lantanídios
+Massa atômica relativa. A incerteza
+no último dígito é ± 1, exceto quando
+indicado entre parênteses.
