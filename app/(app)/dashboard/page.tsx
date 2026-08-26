@@ -2,30 +2,34 @@ import Link from "next/link";
 import { getAttemptRows } from "@/lib/db/stats";
 import { getTopicStats as topicStatsMap } from "@/lib/db/topics";
 import { getEditalTree } from "@/lib/db/topics";
+import { buildTopicSnapshots, toRecommendationInputs } from "@/lib/db/priority";
+import { getNextStudyRecommendation } from "@/lib/domain/recommendation";
+import { NextActionCard } from "@/components/priority/next-action-card";
 import { listSimulados } from "@/lib/db/simulados";
 import { listExams, countExamQuestions } from "@/lib/db/exams";
 import { overallStats, statsByDiscipline, strongWeakDisciplines } from "@/lib/domain/stats";
-import { percent } from "@/lib/domain/scoring";
-import { computeStatus, MIN_ANSWERED_FOR_STATUS } from "@/lib/domain/status";
 import { formatDuration } from "@/lib/domain/timer";
 import { formatPercent, formatDate } from "@/lib/utils";
 import { PageHeader } from "@/components/layout/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DisciplineBars } from "@/components/stats/discipline-bars";
-import { BookOpen, ListChecks, Target } from "lucide-react";
+import { BookOpen, ListChecks } from "lucide-react";
 import type { TopicNode } from "@/lib/db/topics";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [rows, tstats, tree, simulados, exams] = await Promise.all([
+  const [rows, tstats, tree, simulados, exams, snapshots] = await Promise.all([
     getAttemptRows(),
     topicStatsMap(),
     getEditalTree(),
     listSimulados(),
     listExams(),
+    buildTopicSnapshots(),
   ]);
+  // Próxima ação vem do MOTOR de prioridade — não de uma heurística local.
+  const recomendacao = getNextStudyRecommendation(toRecommendationInputs(snapshots));
 
   const overall = overallStats(rows);
   const byDiscipline = statsByDiscipline(rows);
@@ -40,11 +44,6 @@ export default async function DashboardPage() {
   const walk = (n: TopicNode) => (n.children.length ? n.children.forEach(walk) : leaves.push({ id: n.topic.id, name: n.topic.name }));
   tree.forEach((d) => d.roots.forEach(walk));
   const studied = leaves.filter((l) => (tstats.get(l.id)?.answered ?? 0) > 0);
-  const withSample = leaves
-    .map((l) => { const s = tstats.get(l.id); return { ...l, answered: s?.answered ?? 0, pct: percent(s?.correct ?? 0, s?.answered ?? 0) }; })
-    .filter((l) => l.answered >= MIN_ANSWERED_FOR_STATUS)
-    .sort((a, b) => a.pct - b.pct);
-  const nextTopic = withSample[0] ?? null;
 
   return (
     <div className="flex flex-col gap-6">
@@ -65,20 +64,7 @@ export default async function DashboardPage() {
         </Card>
       </div>
 
-      {nextTopic && (
-        <Card>
-          <CardContent className="flex flex-wrap items-center justify-between gap-3 pt-5">
-            <div className="flex items-center gap-3">
-              <Target className="size-5 text-err" />
-              <div>
-                <p className="font-mono text-xs font-semibold uppercase tracking-widest text-err">Próxima ação</p>
-                <p className="font-medium">Seu menor desempenho está em <strong>{nextTopic.name}</strong> ({formatPercent(nextTopic.pct)}).</p>
-              </div>
-            </div>
-            <Button asChild><Link href={`/edital/${nextTopic.id}`}>Estudar {nextTopic.name.split(":")[0]}</Link></Button>
-          </CardContent>
-        </Card>
-      )}
+      {recomendacao && <NextActionCard rec={recomendacao} />}
 
       <Card>
         <CardHeader><CardTitle>Progresso geral</CardTitle></CardHeader>
