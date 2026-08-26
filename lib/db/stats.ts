@@ -7,7 +7,7 @@ export async function getAttemptRows(): Promise<AttemptRow[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("question_attempts")
-    .select("question_id, is_correct, created_at, questions(discipline_id, topic_id, disciplines(name), topics(name))")
+    .select("question_id, is_correct, created_at, origin, questions(discipline_id, topic_id, bank, disciplines(name), topics(name))")
     .order("created_at", { ascending: true });
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -19,6 +19,8 @@ export async function getAttemptRows(): Promise<AttemptRow[]> {
     discipline_name: r.questions?.disciplines?.name ?? "—",
     topic_id: r.questions?.topic_id ?? null,
     topic_name: r.questions?.topics?.name ?? null,
+    bank: r.questions?.bank ?? null,
+    origin: r.origin ?? undefined,
   }));
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }
@@ -28,8 +30,12 @@ export interface WrongQuestionRow {
   question_number: number;
   discipline_name: string;
   topic_name: string | null;
+  topic_id: string | null;
   exam_slug: string;
   last_wrong_at: string;
+  last_error_type: string | null;
+  times_wrong: number;
+  recurring: boolean; // errada mais de uma vez
 }
 
 /**
@@ -41,14 +47,16 @@ export async function getWrongQuestions(): Promise<WrongQuestionRow[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("question_attempts")
-    .select("question_id, is_correct, created_at, questions(question_number, disciplines(name), topics(name), exams(slug))")
+    .select("question_id, is_correct, created_at, error_type, questions(question_number, topic_id, disciplines(name), topics(name), exams(slug))")
     .order("created_at", { ascending: false });
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const rows = (data ?? []) as any[];
   const latestByQuestion = new Map<string, any>();
+  const wrongCount = new Map<string, number>();
   for (const r of rows) {
     if (!latestByQuestion.has(r.question_id)) latestByQuestion.set(r.question_id, r);
+    if (r.is_correct === false) wrongCount.set(r.question_id, (wrongCount.get(r.question_id) ?? 0) + 1);
   }
   return [...latestByQuestion.values()]
     .filter((r) => r.is_correct === false)
@@ -57,8 +65,12 @@ export async function getWrongQuestions(): Promise<WrongQuestionRow[]> {
       question_number: r.questions?.question_number ?? 0,
       discipline_name: r.questions?.disciplines?.name ?? "—",
       topic_name: r.questions?.topics?.name ?? null,
+      topic_id: r.questions?.topic_id ?? null,
       exam_slug: r.questions?.exams?.slug ?? "",
       last_wrong_at: r.created_at,
+      last_error_type: r.error_type ?? null,
+      times_wrong: wrongCount.get(r.question_id) ?? 1,
+      recurring: (wrongCount.get(r.question_id) ?? 1) > 1,
     }));
   /* eslint-enable @typescript-eslint/no-explicit-any */
 }

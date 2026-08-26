@@ -34,6 +34,8 @@ export interface Topic {
   parent_id: string | null;
   name: string;
   order_index: number;
+  code: string | null;
+  description: string | null;
 }
 
 export interface Question {
@@ -56,6 +58,10 @@ export interface Question {
   bank: string | null;
   difficulty: number | null;
   is_sample: boolean;
+  image_url: string | null;
+  question_category: QuestionCategory;
+  study_unit_id: string | null;
+  study_section_id: string | null;
   created_at: string;
 }
 
@@ -78,6 +84,7 @@ export interface QuestionAttempt {
   time_spent_seconds: number | null;
   confidence: Confidence | null;
   origin: Origin;
+  error_type: ErrorType | null;
   simulated_exam_id: string | null;
   created_at: string;
 }
@@ -106,4 +113,51 @@ export interface SimulatedExamQuestion {
   is_correct: boolean | null;
   time_spent_seconds: number | null;
   answered_at: string | null;
+}
+
+export type QuestionCategory =
+  | "prova_real"
+  | "questao_banca"
+  | "questao_adaptada"
+  | "questao_inedita";
+
+export type ErrorType =
+  | "nao_sabia"
+  | "confundiu_conceito"
+  | "erro_calculo"
+  | "erro_interpretacao"
+  | "chute"
+  | "nao_classificado";
+
+export type SectionType =
+  | "concept" | "fundamentals" | "formula" | "example" | "application"
+  | "how_to_solve" | "common_mistakes" | "exam_focus" | "summary" | "other";
+
+export type ContentSourceType =
+  | "material_oficial" | "material_proprio" | "notebooklm" | "ia" | "outro";
+
+export interface StudyUnit {
+  id: string;
+  topic_id: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  order_index: number;
+  source: string | null;
+  source_type: ContentSourceType | null;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface StudyContentSection {
+  id: string;
+  study_unit_id: string;
+  title: string;
+  slug: string;
+  content_markdown: string | null;
+  section_type: SectionType;
+  order_index: number;
+  created_at: string;
+  updated_at: string;
 }

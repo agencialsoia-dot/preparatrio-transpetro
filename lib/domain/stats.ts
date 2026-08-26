@@ -9,6 +9,8 @@ export interface AttemptRow {
   discipline_name: string;
   topic_id: string | null;
   topic_name: string | null;
+  bank?: string | null;
+  origin?: "simulado" | "estudo";
 }
 
 export interface GroupStat {
@@ -97,4 +99,37 @@ export function dailySeries(rows: readonly AttemptRow[]): DailyPoint[] {
   return [...map.entries()]
     .map(([date, d]) => ({ date, ...d, percentage: percent(d.correct, d.answered) }))
     .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** Desempenho por banca (Cesgranrio, etc.). Ignora tentativas sem banca. */
+export function statsByBank(rows: readonly AttemptRow[]): GroupStat[] {
+  return groupBy(rows, (r) => r.bank ?? null, (r) => r.bank ?? null);
+}
+
+/** Desempenho por origem da tentativa (simulado × estudo). */
+export function statsByOrigin(rows: readonly AttemptRow[]): GroupStat[] {
+  return groupBy(rows, (r) => r.origin ?? null, (r) => {
+    if (r.origin === "simulado") return "Simulados";
+    if (r.origin === "estudo") return "Estudo";
+    return null;
+  });
+}
+
+export interface StrongWeak {
+  strong: GroupStat[];
+  weak: GroupStat[];
+}
+
+/**
+ * Pontos fortes/fracos por disciplina — top e bottom por %, exigindo um mínimo
+ * de tentativas para não destacar amostras irrelevantes.
+ */
+export function strongWeakDisciplines(
+  rows: readonly AttemptRow[],
+  minAnswered = 4,
+  n = 3,
+): StrongWeak {
+  const eligible = statsByDiscipline(rows).filter((g) => g.answered >= minAnswered);
+  const byPct = [...eligible].sort((a, b) => b.percentage - a.percentage);
+  return { strong: byPct.slice(0, n), weak: [...byPct].reverse().slice(0, n) };
 }
