@@ -20,7 +20,15 @@ export default async function SimuladosPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <PageHeader title="Simulados" subtitle="Faça a prova real como diagnóstico." />
+      <PageHeader
+        title="Simulados"
+        subtitle="Faça a prova real como diagnóstico ou monte um simulado personalizado."
+        action={
+          <Button asChild size="sm" variant="outline">
+            <Link href="/simulados/novo">Criar simulado</Link>
+          </Button>
+        }
+      />
 
       <section>
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted">Provas reais</h2>

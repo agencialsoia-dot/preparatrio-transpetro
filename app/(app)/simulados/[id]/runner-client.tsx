@@ -93,6 +93,10 @@ export function RunnerClient({
           {q.discipline_name}
         </Badge>
         <p className="enunciado mb-5">{q.statement}</p>
+        {q.image_url && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img src={q.image_url} alt={`Figura da questão ${q.question_number}`} className="mb-5 max-w-full rounded-lg border border-border bg-white" />
+        )}
         <OptionList options={options} selected={answers[q.question_id] ?? null} onSelect={pick} />
       </div>
 

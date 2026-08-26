@@ -59,6 +59,10 @@ export default async function RevisaoPage({
               </div>
 
               <p className="enunciado mb-4">{g.statement}</p>
+              {g.image_url && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={g.image_url} alt={`Figura da questão ${g.question_number}`} className="mb-4 max-w-full rounded-lg border border-border bg-white" />
+              )}
               <OptionList
                 options={options}
                 selected={g.selected_answer}

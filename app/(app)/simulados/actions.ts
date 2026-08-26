@@ -157,3 +157,45 @@ export async function finalizarSimulado(simuladoId: string) {
   revalidatePath("/historico");
   redirect(`/simulados/${simuladoId}/resultado`);
 }
+
+/**
+ * Cria um simulado PERSONALIZADO (por disciplina/tópico + quantidade). Usa as
+ * questões cadastradas (da prova real) filtradas; congela a ordem embaralhada.
+ */
+export async function iniciarSimuladoPersonalizado(input: {
+  examId: string;
+  title: string;
+  disciplineId?: string | null;
+  topicId?: string | null;
+  quantity: number;
+}) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
+
+  let q = supabase.from("questions").select("id").eq("exam_id", input.examId).eq("is_sample", false);
+  if (input.disciplineId) q = q.eq("discipline_id", input.disciplineId);
+  if (input.topicId) q = q.eq("topic_id", input.topicId);
+  const { data: questions } = await q;
+  if (!questions || questions.length === 0) throw new Error("Sem questões para esse filtro.");
+
+  const { data: sim, error } = await supabase
+    .from("simulated_exams")
+    .insert({
+      user_id: user.id,
+      exam_id: input.examId,
+      title: input.title,
+      total_questions: Math.min(input.quantity, questions.length),
+      status: "em_andamento",
+    })
+    .select("id")
+    .single();
+  if (error || !sim) throw new Error(error?.message ?? "Falha ao criar o simulado.");
+
+  const picked = seededShuffle(questions.map((x) => x.id), sim.id).slice(0, input.quantity);
+  const rows = picked.map((qid, i) => ({ simulated_exam_id: sim.id, question_id: qid, question_order: i + 1 }));
+  const { error: seqErr } = await supabase.from("simulated_exam_questions").insert(rows);
+  if (seqErr) throw new Error(seqErr.message);
+
+  redirect(`/simulados/${sim.id}`);
+}

@@ -18,6 +18,20 @@ export default async function ResultadoPage({ params }: { params: Promise<{ id: 
   const graded = await getGradableQuestions(id);
   const score = scoreSimulado(graded);
 
+  // Diagnóstico: erros agrupados por tópico (§26) — "onde você perdeu pontos".
+  const errosPorTopico = new Map<string, { name: string; count: number }>();
+  for (const g of graded) {
+    const ok = g.selected_answer != null && g.selected_answer === g.correct_answer;
+    if (ok || !g.topic_id) continue;
+    const e = errosPorTopico.get(g.topic_id) ?? { name: g.topic_name ?? "—", count: 0 };
+    e.count += 1;
+    errosPorTopico.set(g.topic_id, e);
+  }
+  const diagnostico = [...errosPorTopico.entries()]
+    .map(([id, v]) => ({ id, ...v }))
+    .sort((a, b) => b.count - a.count);
+  const estudarTopicos = diagnostico.slice(0, 3).map((d) => d.id);
+
   return (
     <div className="flex flex-col gap-6">
       <div>
@@ -51,6 +65,31 @@ export default async function ResultadoPage({ params }: { params: Promise<{ id: 
           />
         </CardContent>
       </Card>
+
+      {diagnostico.length > 0 && (
+        <Card>
+          <CardHeader><CardTitle>Onde você perdeu pontos?</CardTitle></CardHeader>
+          <CardContent className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2">
+              {diagnostico.slice(0, 5).map((d) => (
+                <li key={d.id} className="flex items-center justify-between gap-3">
+                  <Link href={`/edital/${d.id}`} className="text-sm font-medium hover:text-brand">{d.name}</Link>
+                  <span className="shrink-0 rounded-full bg-err-soft px-2.5 py-0.5 text-xs font-semibold text-err">
+                    {d.count} erro{d.count > 1 ? "s" : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {estudarTopicos.length > 0 && (
+              <Button asChild className="w-fit">
+                <Link href={`/estudar/sessao?topico=${estudarTopicos[0]}&modo=erradas&quantidade=10&origem=questoes`}>
+                  Estudar estes tópicos
+                </Link>
+              </Button>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader>

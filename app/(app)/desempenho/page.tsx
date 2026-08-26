@@ -1,20 +1,30 @@
 import { getAttemptRows } from "@/lib/db/stats";
-import { overallStats, statsByDiscipline, statsByTopic } from "@/lib/domain/stats";
-import { formatPercent } from "@/lib/utils";
+import {
+  overallStats, statsByDiscipline, statsByTopic, statsByBank, statsByOrigin, dailySeries,
+} from "@/lib/domain/stats";
 import { PageHeader } from "@/components/layout/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScoreRing } from "@/components/stats/score-ring";
 import { DisciplineBars } from "@/components/stats/discipline-bars";
+import { EvolutionChart } from "@/components/stats/evolution-chart";
+
+export const dynamic = "force-dynamic";
 
 export default async function DesempenhoPage() {
   const rows = await getAttemptRows();
   const overall = overallStats(rows);
   const byDiscipline = statsByDiscipline(rows);
   const byTopic = statsByTopic(rows);
+  const byBank = statsByBank(rows);
+  const byOrigin = statsByOrigin(rows);
+  const series = dailySeries(rows);
+
+  const toBars = (items: { name: string; correct: number; answered: number; percentage: number }[]) =>
+    items.map((t) => ({ name: t.name, correct: t.correct, total: t.answered, percentage: t.percentage }));
 
   return (
     <div className="flex flex-col gap-6">
-      <PageHeader title="Meu desempenho" subtitle="Acertos ÷ questões respondidas." />
+      <PageHeader title="Meu desempenho" subtitle="Acertos ÷ questões respondidas. Recortes por disciplina, tópico, banca e origem." />
 
       <Card>
         <CardContent className="flex flex-col items-center gap-5 pt-6 sm:flex-row sm:justify-around">
@@ -27,29 +37,41 @@ export default async function DesempenhoPage() {
         </CardContent>
       </Card>
 
+      {series.length >= 2 && (
+        <Card>
+          <CardHeader><CardTitle>Evolução</CardTitle></CardHeader>
+          <CardContent><EvolutionChart points={series} /></CardContent>
+        </Card>
+      )}
+
       <Card>
         <CardHeader><CardTitle>Por disciplina</CardTitle></CardHeader>
-        <CardContent>
-          <DisciplineBars
-            items={byDiscipline.map((d) => ({ name: d.name, correct: d.correct, total: d.answered, percentage: d.percentage }))}
-          />
-        </CardContent>
+        <CardContent><DisciplineBars items={toBars(byDiscipline)} /></CardContent>
       </Card>
 
       <Card>
         <CardHeader><CardTitle>Por tópico</CardTitle></CardHeader>
         <CardContent>
           {byTopic.length === 0 ? (
-            <p className="text-sm text-muted">
-              Nenhum tópico cadastrado ainda. Quando as questões tiverem tópicos, o recorte aparece aqui.
-            </p>
-          ) : (
-            <DisciplineBars
-              items={byTopic.map((t) => ({ name: t.name, correct: t.correct, total: t.answered, percentage: t.percentage }))}
-            />
-          )}
+            <p className="text-sm text-muted">Responda questões com tópico para ver este recorte.</p>
+          ) : <DisciplineBars items={toBars(byTopic)} />}
         </CardContent>
       </Card>
+
+      <div className="grid gap-6 sm:grid-cols-2">
+        <Card>
+          <CardHeader><CardTitle>Por origem</CardTitle></CardHeader>
+          <CardContent>
+            {byOrigin.length === 0 ? <p className="text-sm text-muted">Sem dados.</p> : <DisciplineBars items={toBars(byOrigin)} />}
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader><CardTitle>Por banca</CardTitle></CardHeader>
+          <CardContent>
+            {byBank.length === 0 ? <p className="text-sm text-muted">Sem dados.</p> : <DisciplineBars items={toBars(byBank)} />}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

@@ -14,6 +14,7 @@ export interface RunnerQuestion {
   question_number: number;
   discipline_name: string;
   statement: string;
+  image_url: string | null;
   option_a: string;
   option_b: string;
   option_c: string;
@@ -47,7 +48,7 @@ export async function getRunnerQuestions(simuladoId: string): Promise<RunnerQues
     .from("simulated_exam_questions")
     .select(
       "id, question_id, question_order, selected_answer, " +
-        "questions(question_number, statement, option_a, option_b, option_c, option_d, option_e, disciplines(name))",
+        "questions(question_number, statement, image_url, option_a, option_b, option_c, option_d, option_e, disciplines(name))",
     )
     .eq("simulated_exam_id", simuladoId)
     .order("question_order");
@@ -60,6 +61,7 @@ export async function getRunnerQuestions(simuladoId: string): Promise<RunnerQues
     questions: {
       question_number: number;
       statement: string;
+      image_url: string | null;
       option_a: string;
       option_b: string;
       option_c: string;
@@ -76,6 +78,7 @@ export async function getRunnerQuestions(simuladoId: string): Promise<RunnerQues
     question_number: r.questions?.question_number ?? r.question_order,
     discipline_name: r.questions?.disciplines?.name ?? "",
     statement: r.questions?.statement ?? "",
+    image_url: r.questions?.image_url ?? null,
     option_a: r.questions?.option_a ?? "",
     option_b: r.questions?.option_b ?? "",
     option_c: r.questions?.option_c ?? "",
@@ -89,6 +92,7 @@ export async function getRunnerQuestions(simuladoId: string): Promise<RunnerQues
 export async function getGradableQuestions(simuladoId: string): Promise<
   (GradableQuestion & {
     statement: string;
+    image_url: string | null;
     options: Record<Letter, string | null>;
     explanation: string | null;
     explanation_source: string | null;
@@ -100,7 +104,7 @@ export async function getGradableQuestions(simuladoId: string): Promise<
     .from("simulated_exam_questions")
     .select(
       "question_id, question_order, selected_answer, is_correct, " +
-        "questions(question_number, statement, correct_answer, explanation, explanation_source, " +
+        "questions(question_number, statement, image_url, correct_answer, explanation, explanation_source, " +
         "option_a, option_b, option_c, option_d, option_e, " +
         "discipline_id, topic_id, disciplines(name), topics(name))",
     )
@@ -122,6 +126,7 @@ export async function getGradableQuestions(simuladoId: string): Promise<
       selected_answer: r.selected_answer as Letter | null,
       is_correct: r.is_correct as boolean | null,
       statement: q.statement ?? "",
+      image_url: q.image_url ?? null,
       options: {
         A: q.option_a ?? null,
         B: q.option_b ?? null,
