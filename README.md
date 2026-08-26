@@ -81,3 +81,27 @@ docs/            formato de importação
 
 RLS garante que os dados de cada usuário (tentativas, simulados) são privados; o conteúdo
 das provas é somente-leitura para usuários autenticados.
+
+---
+
+## V1.5 — Plataforma orientada a questões (Bloco A)
+
+Entregue nesta versão (estendendo o MVP V1, sem recriar nada):
+
+- **Auditoria da prova 2023** contra os PDFs oficiais (`docs/AUDITORIA-2023.md`): gabarito 100%
+  correto (Q49=E por recurso); 59/60 enunciados fiéis. As **12 questões com figura** exibem a
+  imagem real recortada do caderno (`public/questions/2023/`), no simulado, revisão e estudo.
+- **Meu Edital** (`/edital`): árvore oficial do Anexo IV (LP 8 · MAT 10 · CE 38 tópicos sob 11
+  grupos) com status por tópico; página do tópico com desempenho e atalhos de estudo.
+- **Banco de Questões** (`/questoes`): filtros por disciplina/tópico/banca/ano/situação, com
+  correção imediata e classificação do erro. Experiência de questão única reusada em todo lugar.
+- **Meus Erros** (`/erros`): recorrentes (errou > 1×), tipo de erro, reestudar por tópico.
+- **Simulados**: provas reais × personalizados (`/simulados/novo`, por disciplina/tópico) +
+  diagnóstico pós-prova ("onde você perdeu pontos" → estudar estes tópicos).
+- **Desempenho** (`/desempenho`): por disciplina/tópico/banca/origem + gráfico de evolução.
+- **Dashboard**: pontos fortes/fracos, tópicos estudados × total, próxima ação.
+
+Migrations `0007`–`0011` (schema final + edital) aplicadas no projeto Supabase; RLS sem alertas.
+
+**V1.6 (próximo):** Módulo de Conteúdos (Unidade de Estudo — teoria/vídeo/áudio/flashcards/
+quiz). O schema já está pronto (tabelas `study_*` criadas em `0008`), então não haverá refação.
